@@ -119,6 +119,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8lU-y0-q0c">
+                                <rect key="frame" x="176" y="562" width="64" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Test 3"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="AS2-cQ-JPi"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -187,6 +193,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="Sf1-db-Zrv"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2v2-0M-rXw">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
