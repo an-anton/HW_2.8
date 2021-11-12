@@ -11,7 +11,7 @@
         <!--Table View Controller-->
         <scene sceneID="5gJ-kg-yZ6">
             <objects>
-                <tableViewController storyboardIdentifier="UITableViewController-WJi-DJ-Uki" id="WJi-DJ-Uki" sceneMemberID="viewController">
+                <tableViewController id="WJi-DJ-Uki" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="2js-6q-mAz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -169,7 +169,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="pOq-16-Ycs" kind="relationship" relationship="viewControllers" id="gdi-17-jMU"/>
-                        <segue destination="lyK-V9-6JC" kind="relationship" relationship="viewControllers" id="Vad-W0-bKF"/>
+                        <segue destination="HYW-Bl-iaR" kind="relationship" relationship="viewControllers" id="Vad-W0-bKF"/>
                         <segue destination="e3Y-AM-cAL" kind="relationship" relationship="viewControllers" id="2hS-wL-pRB"/>
                         <segue destination="hYA-Ug-OpL" kind="relationship" relationship="viewControllers" id="0Hq-Nv-lJT"/>
                     </connections>
@@ -177,6 +177,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aTO-pk-geS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1089.8550724637682" y="350.89285714285711"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="TwV-n4-MhK">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HYW-Bl-iaR" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="history" id="aO5-AO-Z9s"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="W8k-UW-lwi">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="WJi-DJ-Uki" kind="relationship" relationship="rootViewController" id="wAv-W9-QSY"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fhr-qK-WZQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2015.9420289855075" y="1067.4107142857142"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="RAD-RO-wJZ">
@@ -317,16 +336,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AsJ-fO-TVb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2000.0000000000002" y="350.89285714285711"/>
-        </scene>
-        <!--History-->
-        <scene sceneID="cIc-nd-7oD">
-            <objects>
-                <viewControllerPlaceholder storyboardName="History" id="lyK-V9-6JC" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="krg-4S-3CI"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cLs-ep-bUr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2015.9420289855075" y="1067.4107142857142"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

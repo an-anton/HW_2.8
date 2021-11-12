@@ -13,6 +13,8 @@
 		274D5236273E8B76004A7259 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 274D5234273E8B76004A7259 /* Main.storyboard */; };
 		274D5238273E8B78004A7259 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 274D5237273E8B78004A7259 /* Assets.xcassets */; };
 		274D523B273E8B78004A7259 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 274D5239273E8B78004A7259 /* LaunchScreen.storyboard */; };
+		97129A7F273EBE67006C4338 /* Accounts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97129A7D273EBE67006C4338 /* Accounts.storyboard */; };
+		97129A81273EBE8B006C4338 /* History.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97129A80273EBE8B006C4338 /* History.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		274D5237273E8B78004A7259 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		274D523A273E8B78004A7259 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		274D523C273E8B78004A7259 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		97129A7E273EBE67006C4338 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = HW_2.8/Storyboards/Base.lproj/Accounts.storyboard; sourceTree = "<group>"; };
+		97129A80273EBE8B006C4338 /* History.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = History.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +75,8 @@
 			isa = PBXGroup;
 			children = (
 				274D5234273E8B76004A7259 /* Main.storyboard */,
+				97129A7D273EBE67006C4338 /* Accounts.storyboard */,
+				97129A80273EBE8B006C4338 /* History.storyboard */,
 				274D5239273E8B78004A7259 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
@@ -151,6 +157,8 @@
 			files = (
 				274D523B273E8B78004A7259 /* LaunchScreen.storyboard in Resources */,
 				274D5238273E8B78004A7259 /* Assets.xcassets in Resources */,
+				97129A7F273EBE67006C4338 /* Accounts.storyboard in Resources */,
+				97129A81273EBE8B006C4338 /* History.storyboard in Resources */,
 				274D5236273E8B76004A7259 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -185,6 +193,14 @@
 				274D523A273E8B78004A7259 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		97129A7D273EBE67006C4338 /* Accounts.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				97129A7E273EBE67006C4338 /* Base */,
+			);
+			name = Accounts.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
