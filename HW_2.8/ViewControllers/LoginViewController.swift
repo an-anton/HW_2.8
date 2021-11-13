@@ -19,7 +19,15 @@ class LoginViewController: UIViewController {
         logInButton.isEnabled = false
         logInButton.backgroundColor = .clear
     }
-
-
+   
+    
+    @IBAction func logInButtonAction() {
+        
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.view.endEditing(true)
+    }
+    
 }
 
