@@ -7,11 +7,13 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class LoginViewController: UIViewController {
 
+    @IBOutlet var logInButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        logInButton.layer.cornerRadius = logInButton.frame.height / 4
     }
 
 
