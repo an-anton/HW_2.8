@@ -47,7 +47,7 @@
                                     <fontDescription key="titleFontDescription" name=".SFUI-Regular" family=".AppleSystemUIFont" pointSize="25"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="p3N-Fd-BZc" kind="presentation" id="vLf-Nm-ynm"/>
+                                    <segue destination="p3N-Fd-BZc" kind="presentation" modalPresentationStyle="fullScreen" id="vLf-Nm-ynm"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -86,7 +86,9 @@
         <!--Main-->
         <scene sceneID="XMs-Vl-XbC">
             <objects>
-                <viewControllerPlaceholder storyboardName="Main" id="p3N-Fd-BZc" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Main" id="p3N-Fd-BZc" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="BmT-Wo-IEx"/>
+                </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="esC-t9-go4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="731" y="123"/>
