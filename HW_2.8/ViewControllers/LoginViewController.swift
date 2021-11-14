@@ -16,7 +16,6 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         logInButton.layer.cornerRadius = logInButton.frame.height / 4
-       
     }
    
     
@@ -29,8 +28,12 @@ class LoginViewController: UIViewController {
     }
     
 }
+ // MARK: - Extension
 extension LoginViewController {
-    private func showAlert(massage: String, title: String) {
-        
+    private func showAlert(message: String, title: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default)
+        alert.addAction(okAction)
+        present(alert, animated: true)
     }
 }
