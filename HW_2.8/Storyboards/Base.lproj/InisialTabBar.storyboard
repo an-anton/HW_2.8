@@ -1,30 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2MK-Dg-Hg7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DYo-Rh-iXD">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
-        <capability name="Image references" minToolsVersion="12.0"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
-        <scene sceneID="3vE-2V-cT9">
-            <objects>
-                <navigationController id="2MK-Dg-Hg7" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="XCw-pv-SJ2">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="DYo-Rh-iXD" kind="relationship" relationship="rootViewController" id="SgM-aB-XRZ"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yXa-bT-XTz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="202" y="351"/>
-        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="k8P-Ix-ijB">
             <objects>
@@ -37,68 +19,75 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="Z9E-ZD-g2D" kind="relationship" relationship="viewControllers" id="1ab-gg-cVy"/>
+                        <segue destination="dg4-t1-hyQ" kind="relationship" relationship="viewControllers" id="vyH-eQ-Jl0"/>
+                        <segue destination="yrV-AK-vGO" kind="relationship" relationship="viewControllers" id="s6T-mp-Sts"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aTO-pk-geS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1089.8550724637682" y="350.89285714285711"/>
+            <point key="canvasLocation" x="329" y="351"/>
         </scene>
-        <!--Счета-->
-        <scene sceneID="ar0-Ov-a4I">
+        <!--AccountScreen.storyboard-->
+        <scene sceneID="9K7-ae-4IW">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hDi-41-7s4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <tableViewController id="Z9E-ZD-g2D" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="dvV-KJ-fBu">
+                <viewControllerPlaceholder storyboardName="AccountScreen.storyboard" id="dg4-t1-hyQ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="bXw-RT-VMY"/>
+                    <navigationItem key="navigationItem" id="iES-tm-Hzu"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KK6-s4-1K3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1141" y="351"/>
+        </scene>
+        <!--Root View Controller-->
+        <scene sceneID="GVD-0d-hvy">
+            <objects>
+                <tableViewController id="88I-zn-cCR" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="UhZ-pW-wB7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="FFX-aw-D9L">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="Izz-3I-YvG">
                                 <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FFX-aw-D9L" id="kFe-fp-G6e">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Izz-3I-YvG" id="fpx-Wk-eK0">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="Z9E-ZD-g2D" id="xt4-1G-Dgt"/>
-                            <outlet property="delegate" destination="Z9E-ZD-g2D" id="gVT-uK-i2T"/>
+                            <outlet property="dataSource" destination="88I-zn-cCR" id="d6H-xd-CKX"/>
+                            <outlet property="delegate" destination="88I-zn-cCR" id="NEc-hu-yHb"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Счета" id="PvP-H8-T7r">
-                        <color key="badgeColor" systemColor="systemYellowColor"/>
-                        <imageReference key="selectedImage" image="book" catalog="system" symbolScale="large" renderingMode="hierarchical-single">
-                            <hierarchicalColors>
-                                <color name="AccentColor"/>
-                                <color systemColor="secondaryLabelColor"/>
-                                <color systemColor="tertiaryLabelColor"/>
-                            </hierarchicalColors>
-                        </imageReference>
-                    </tabBarItem>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="HGO-aL-tLy"/>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zZk-5n-Hox" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2035" y="351"/>
+            <point key="canvasLocation" x="2120" y="1092"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="DR2-8J-vFY">
+            <objects>
+                <navigationController id="yrV-AK-vGO" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="kQr-gH-JCU"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="cft-Up-wij">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="88I-zn-cCR" kind="relationship" relationship="rootViewController" id="pmL-uR-LRr"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ck8-tJ-8fx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1230" y="1092"/>
         </scene>
     </scenes>
     <resources>
-        <image name="book" catalog="system" width="128" height="99"/>
-        <namedColor name="AccentColor">
-            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <systemColor name="secondaryLabelColor">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemYellowColor">
-            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="tertiaryLabelColor">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
