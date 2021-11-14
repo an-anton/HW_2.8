@@ -13,6 +13,9 @@ class LoginViewController: UIViewController {
     
     @IBOutlet var logInButton: UIButton!
     
+    private let user = "User"
+    private let password = "123"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         logInButton.layer.cornerRadius = logInButton.frame.height / 4
@@ -20,7 +23,9 @@ class LoginViewController: UIViewController {
    
     
     @IBAction func logInButtonAction() {
-        
+        if loginTextField.text == "" && passwordTextField.text == "" {
+            showAlert(message: "Enter your username and password", title: "")
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
