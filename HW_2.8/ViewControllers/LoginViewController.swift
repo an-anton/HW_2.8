@@ -16,8 +16,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         logInButton.layer.cornerRadius = logInButton.frame.height / 4
-        //logInButton.isEnabled = false
-        //logInButton.backgroundColor = .clear
+       
     }
    
     
@@ -30,4 +29,8 @@ class LoginViewController: UIViewController {
     }
     
 }
-
+extension LoginViewController {
+    private func showAlert(massage: String, title: String) {
+        
+    }
+}
