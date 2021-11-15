@@ -11,18 +11,15 @@ class LoginViewController: UIViewController {
      // MARK: - @IBOutlets
     @IBOutlet var loginTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
-    @IBOutlet var logInButton: UIButton!
-    
+    @IBOutlet var logInButton: UIButton! {
+        didSet {
+            logInButton.layer.cornerRadius = logInButton.frame.height / 4
+        }
+    }
      // MARK: - Private properties
     private let user = "User"
     private let password = "123"
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        logInButton.layer.cornerRadius = logInButton.frame.height / 4
-        loginTextField.delegate = self
-        passwordTextField.delegate = self
-    }
    
      // MARK: - @IBActions
     @IBAction func logInButtonAction() {
