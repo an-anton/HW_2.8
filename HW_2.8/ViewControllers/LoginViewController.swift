@@ -20,38 +20,48 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         logInButton.layer.cornerRadius = logInButton.frame.height / 4
+        loginTextField.delegate = self
+        passwordTextField.delegate = self
     }
    
      // MARK: - @IBActions
     @IBAction func logInButtonAction() {
         if loginTextField.text == "" && passwordTextField.text == "" {
-            showAlert(message: "Enter your username and password", title: "")
+            showAlert(message: "Enter your username and password")
+        } else if loginTextField.text == "" || passwordTextField.text == "" {
+            showAlert(message: "Enter the correct username or password")
+        } else if loginTextField.text == user && passwordTextField.text != password {
+            showAlert(message: "Enter the correct password")
         }
-        if loginTextField.text == "" || passwordTextField.text == "" {
-            showAlert(message: "Enter the correct username or password", title: "")
-        }
     }
-    @IBAction func forgotLogin() {
-        showAlert(message: "Your username is \(user)", title: "")
+    @IBAction func forgotAction(_ sender: UIButton) {
+        sender.tag == 0
+        ? showAlert(message: "Your username is \(user)")
+        : showAlert(message: "Your password is \(password)")
     }
-    @IBAction func forgotPass() {
-        showAlert(message: "Your password is \(password)", title: "")
-    }
-    
-    
-    
-    
-    
 }
- // MARK: - Extension
+ // MARK: - UIAlertController
 extension LoginViewController {
-    private func showAlert(message: String, title: String) {
+    private func showAlert(message: String, title: String? = nil) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default)
         alert.addAction(okAction)
         present(alert, animated: true)
     }
+}
+ // MARK: - UITextFieldDelegate
+extension LoginViewController: UITextFieldDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.view.endEditing(true)
+        view.endEditing(true)
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == loginTextField {
+            passwordTextField.becomeFirstResponder()
+        } else {
+            logInButtonAction()
+            performSegue(withIdentifier: "goToNext", sender: nil)
+        }
+        return true
     }
 }
