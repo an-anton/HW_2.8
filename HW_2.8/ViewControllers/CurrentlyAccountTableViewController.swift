@@ -51,25 +51,18 @@ class CurrentlyAccountTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell2", for: indexPath)
-        
-        print(indexPath.section)
+
         let transactions = ammountRows1[date[indexPath.section]]!
-       // print(indexPath.row)
         let transaction = transactions[indexPath.row]
         var content = cell.defaultContentConfiguration()
         
         content.text = transaction.category
-        let accountCount = String(transaction.amountTransaction) + " ₽"
+        let accountCount: String
+        if transaction.typeTransaction == "Доход" {
+            accountCount = "+ \(transaction.amountTransaction) ₽"
+        } else { accountCount = "- \(transaction.amountTransaction) ₽" }
         content.secondaryText = accountCount
         cell.contentConfiguration = content
-        
-//        let person = persons.accountList[indexPath.row]
-//        var content = cell.defaultContentConfiguration()
-//
-//        content.text = person.accountName
-//        let accountCount = String(person.accountStartCount + ammountAllTransaction(for: person)) + " ₽"
-//        content.secondaryText = accountCount
-//        cell.contentConfiguration = content
 
         return cell
     }

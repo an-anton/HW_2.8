@@ -20,6 +20,8 @@
 		9716160327418BC600B171E0 /* AccountScreen.storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9716160127418BC600B171E0 /* AccountScreen.storyboard.storyboard */; };
 		9716160527419B5900B171E0 /* AddAccountTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9716160427419B5900B171E0 /* AddAccountTableViewController.swift */; };
 		971616072741A10300B171E0 /* CurrentlyAccountTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971616062741A10300B171E0 /* CurrentlyAccountTableViewController.swift */; };
+		973B529927442F4A0068F963 /* StartTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 973B529827442F4A0068F963 /* StartTabBarController.swift */; };
+		973B529B274435B30068F963 /* AllAccountTransactionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 973B529A274435B30068F963 /* AllAccountTransactionTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		9716160227418BC600B171E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = HW_2.8/Storyboards/Base.lproj/AccountScreen.storyboard.storyboard; sourceTree = "<group>"; };
 		9716160427419B5900B171E0 /* AddAccountTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountTableViewController.swift; sourceTree = "<group>"; };
 		971616062741A10300B171E0 /* CurrentlyAccountTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentlyAccountTableViewController.swift; sourceTree = "<group>"; };
+		973B529827442F4A0068F963 /* StartTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartTabBarController.swift; sourceTree = "<group>"; };
+		973B529A274435B30068F963 /* AllAccountTransactionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllAccountTransactionTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,9 +99,11 @@
 			isa = PBXGroup;
 			children = (
 				274D5232273E8B76004A7259 /* LoginViewController.swift */,
+				973B529827442F4A0068F963 /* StartTabBarController.swift */,
 				971615FF2741807200B171E0 /* AccountExistingTableViewController.swift */,
 				9716160427419B5900B171E0 /* AddAccountTableViewController.swift */,
 				971616062741A10300B171E0 /* CurrentlyAccountTableViewController.swift */,
+				973B529A274435B30068F963 /* AllAccountTransactionTableViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -211,11 +217,13 @@
 			files = (
 				971616072741A10300B171E0 /* CurrentlyAccountTableViewController.swift in Sources */,
 				274D5233273E8B76004A7259 /* LoginViewController.swift in Sources */,
+				973B529927442F4A0068F963 /* StartTabBarController.swift in Sources */,
 				971615FE27417BDD00B171E0 /* DataManager.swift in Sources */,
 				9716160527419B5900B171E0 /* AddAccountTableViewController.swift in Sources */,
 				274D522F273E8B76004A7259 /* AppDelegate.swift in Sources */,
 				971615FC2741797D00B171E0 /* Person.swift in Sources */,
 				971616002741807200B171E0 /* AccountExistingTableViewController.swift in Sources */,
+				973B529B274435B30068F963 /* AllAccountTransactionTableViewController.swift in Sources */,
 				274D5231273E8B76004A7259 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

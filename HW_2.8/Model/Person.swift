@@ -46,14 +46,14 @@ extension Person {
                transaction: [
                 Transaction(
                     dateTransaction: "01.11.2021",
-                    amountTransaction: -5000, category: "Машина",
+                    amountTransaction: 5000, category: "Машина",
                     typeTransaction: "Расход",
                     accountTransactionFrom: "Карта Тинькофф",
                     accountTransactionTo: ""
                 ),
                 Transaction(
                     dateTransaction: "01.11.2021",
-                    amountTransaction: -3000, category: "Продукты",
+                    amountTransaction: 3000, category: "Продукты",
                     typeTransaction: "Расход",
                     accountTransactionFrom: "Карта Тинькофф",
                     accountTransactionTo: ""
