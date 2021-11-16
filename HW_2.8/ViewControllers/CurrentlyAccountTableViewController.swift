@@ -9,6 +9,10 @@ import UIKit
 
 class CurrentlyAccountTableViewController: UITableViewController {
 
+    var person: Person!
+    var personIndex: AccountList!
+    var ammountArray: [Transaction] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,16 +26,35 @@ class CurrentlyAccountTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        var ammount = 0
+        for transaction in person.transaction {
+            if transaction.accountTransactionFrom == personIndex.accountName {
+                ammount += 1
+                print(ammount)
+            }
+        }
+        return ammount
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        for transaction in person.transaction {
+            if transaction.accountTransactionFrom == personIndex.accountName {
+                ammountArray.append(transaction)
+            }
+        }
+        return ammountArray[section].dateTransaction
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
+//        var ammountRows = 0
+//        for transaction in person.transaction {
+//            if transaction.dateTransaction ==  {
+//
+//            }
+//        }
         return 0
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 
@@ -39,7 +62,6 @@ class CurrentlyAccountTableViewController: UITableViewController {
 
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.

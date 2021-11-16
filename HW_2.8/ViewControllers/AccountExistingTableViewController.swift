@@ -32,10 +32,10 @@ class AccountExistingTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
+//    override func numberOfSections(in tableView: UITableView) -> Int {
+//        // #warning Incomplete implementation, return the number of sections
+//        return 1
+//    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
        persons.accountList.count
@@ -47,16 +47,16 @@ class AccountExistingTableViewController: UITableViewController {
         var content = cell.defaultContentConfiguration()
         
         content.text = person.accountName
-        let test = String(person.accountStartCount) + " ₽"
-        content.secondaryText = test
+        let accountCount = String(person.accountStartCount + ammountAllTransaction(for: person)) + " ₽"
+        content.secondaryText = accountCount
         cell.contentConfiguration = content
 
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-    }
+//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        tableView.deselectRow(at: indexPath, animated: true)
+//    }
 
     /*
     // Override to support conditional editing of the table view.
@@ -94,12 +94,23 @@ class AccountExistingTableViewController: UITableViewController {
     */
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let viewController = segue.destination as? UINavigationController
-        guard let navigationVC = viewController else { return }
-        guard let addAccountTVC = navigationVC.topViewController as? AddAccountTableViewController else { return }
-        addAccountTVC.delegate = self
+        
+        if segue.identifier == "add" {
+            let viewController = segue.destination as? UINavigationController
+            guard let navigationVC = viewController else { return }
+            guard let addAccountTVC = navigationVC.topViewController as? AddAccountTableViewController else { return }
+            addAccountTVC.delegate = self
+        } else {
+            let viewController = segue.destination as? UINavigationController
+            guard let navigationVC = viewController else { return }
+            guard let currentlyTVC = navigationVC.topViewController as? CurrentlyAccountTableViewController else { return }
+            guard let indexPath = tableView.indexPathForSelectedRow else { return }
+            
+            currentlyTVC.person = persons
+            let personFromIndex = persons.accountList[indexPath.row]
+            currentlyTVC.personIndex = personFromIndex
+        }
     }
-
 }
 
 extension AccountExistingTableViewController {
@@ -108,7 +119,20 @@ extension AccountExistingTableViewController {
         for accountList in persons.accountList {
             ammount = ammount + accountList.accountStartCount
         }
+        for transaction in persons.transaction {
+            ammount = ammount + transaction.amountTransaction
+        }
         return ammount
+    }
+    
+    func ammountAllTransaction(for person: AccountList) -> Int {
+        var summAllTransaction = 0
+        for transaction in persons.transaction {
+            if transaction.accountTransactionFrom == person.accountName {
+                summAllTransaction = summAllTransaction + transaction.amountTransaction
+            }
+        }
+        return summAllTransaction
     }
 }
 
