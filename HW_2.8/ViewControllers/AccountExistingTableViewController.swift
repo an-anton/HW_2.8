@@ -106,7 +106,14 @@ class AccountExistingTableViewController: UITableViewController {
             guard let currentlyTVC = navigationVC.topViewController as? CurrentlyAccountTableViewController else { return }
             guard let indexPath = tableView.indexPathForSelectedRow else { return }
             
+            var personAccountFroms: [Transaction] = []
+            for person in persons.transaction {
+                if person.accountTransactionFrom == persons.accountList[indexPath.row].accountName {
+                    personAccountFroms.append(person)
+                }
+            }
             currentlyTVC.person = persons
+            currentlyTVC.personTransactions = personAccountFroms
             let personFromIndex = persons.accountList[indexPath.row]
             currentlyTVC.personIndex = personFromIndex
         }

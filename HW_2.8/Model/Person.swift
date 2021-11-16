@@ -19,6 +19,7 @@ struct AccountList {
 struct Transaction {
     let dateTransaction: String // дата
     let amountTransaction: Int // сумма
+    let category: String
     let typeTransaction: String // тип (доход, расход, перевод)
     let accountTransactionFrom: String // с какого счёта было списание
     let accountTransactionTo: String // если тип "перевод", то на какой счёт был перевод
@@ -45,21 +46,28 @@ extension Person {
                transaction: [
                 Transaction(
                     dateTransaction: "01.11.2021",
-                    amountTransaction: 5000,
+                    amountTransaction: -5000, category: "Машина",
+                    typeTransaction: "Расход",
+                    accountTransactionFrom: "Карта Тинькофф",
+                    accountTransactionTo: ""
+                ),
+                Transaction(
+                    dateTransaction: "01.11.2021",
+                    amountTransaction: -3000, category: "Продукты",
                     typeTransaction: "Расход",
                     accountTransactionFrom: "Карта Тинькофф",
                     accountTransactionTo: ""
                 ),
                 Transaction(
                     dateTransaction: "05.11.2021",
-                    amountTransaction: -1000,
+                    amountTransaction: 10000, category: "Зарплата",
                     typeTransaction: "Доход",
                     accountTransactionFrom: "Карта Тинькофф",
                     accountTransactionTo: ""
                 ),
                 Transaction(
                     dateTransaction: "05.11.2021",
-                    amountTransaction: 10000,
+                    amountTransaction: 10000, category: "Проект",
                     typeTransaction: "Доход",
                     accountTransactionFrom: "Карта ВТБ",
                     accountTransactionTo: ""
