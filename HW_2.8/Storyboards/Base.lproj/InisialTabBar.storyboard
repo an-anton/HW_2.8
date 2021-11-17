@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -41,6 +42,7 @@
         <!--All Account Transaction Table View Controller-->
         <scene sceneID="GVD-0d-hvy">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zZk-5n-Hox" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tableViewController id="88I-zn-cCR" customClass="AllAccountTransactionTableViewController" customModule="HW_2_8" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="UhZ-pW-wB7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -81,19 +83,62 @@
                         <barButtonItem key="leftBarButtonItem" title="Item" id="5lN-8y-YVP">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="fQF-LS-i45"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="fQF-LS-i45">
+                            <connections>
+                                <segue destination="mOj-M9-7R4" kind="presentation" id="dGD-iQ-fh0"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="ammoutAccountButton" destination="5lN-8y-YVP" id="4XR-Q6-WbG"/>
                     </connections>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zZk-5n-Hox" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2120" y="1092"/>
+            <point key="canvasLocation" x="2154" y="1092"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="UMP-zq-fp0">
+            <objects>
+                <viewController id="PoK-nT-emq" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Woy-nm-jMd">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="mhJ-5s-zkz">
+                                <rect key="frame" x="112" y="56" width="191" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="First"/>
+                                    <segment title="Second"/>
+                                </segments>
+                            </segmentedControl>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hfN-eB-9up">
+                                <rect key="frame" x="20" y="101" width="358" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="₽" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Oy-cl-xFB">
+                                <rect key="frame" x="383" y="110" width="11" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="a5Q-8y-hUS"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="bZY-Li-KHk"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WoE-Bq-cYI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3873.913043478261" y="1091.5178571428571"/>
         </scene>
         <!--Операции-->
         <scene sceneID="DR2-8J-vFY">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ck8-tJ-8fx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController id="yrV-AK-vGO" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Операции" id="kQr-gH-JCU"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="cft-Up-wij">
@@ -101,12 +146,29 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="88I-zn-cCR" kind="relationship" relationship="rootViewController" id="pmL-uR-LRr"/>
+                        <segue destination="88I-zn-cCR" kind="relationship" relationship="rootViewController" id="6MW-MM-1wO"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ck8-tJ-8fx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1230" y="1092"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Da8-HQ-Vzp">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mOj-M9-7R4" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="jlr-ds-26K">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="PoK-nT-emq" kind="relationship" relationship="rootViewController" id="Qrx-0J-Hif"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="25O-Sm-zfn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3100" y="1092"/>
         </scene>
     </scenes>
     <resources>

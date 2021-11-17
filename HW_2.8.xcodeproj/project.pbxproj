@@ -22,6 +22,7 @@
 		971616072741A10300B171E0 /* CurrentlyAccountTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971616062741A10300B171E0 /* CurrentlyAccountTableViewController.swift */; };
 		973B529927442F4A0068F963 /* StartTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 973B529827442F4A0068F963 /* StartTabBarController.swift */; };
 		973B529B274435B30068F963 /* AllAccountTransactionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 973B529A274435B30068F963 /* AllAccountTransactionTableViewController.swift */; };
+		973B529E2744F5A80068F963 /* AllTransaction.storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 973B529C2744F5A70068F963 /* AllTransaction.storyboard.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		971616062741A10300B171E0 /* CurrentlyAccountTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentlyAccountTableViewController.swift; sourceTree = "<group>"; };
 		973B529827442F4A0068F963 /* StartTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartTabBarController.swift; sourceTree = "<group>"; };
 		973B529A274435B30068F963 /* AllAccountTransactionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllAccountTransactionTableViewController.swift; sourceTree = "<group>"; };
+		973B529D2744F5A70068F963 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = HW_2.8/Storyboards/Base.lproj/AllTransaction.storyboard.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 		274D5222273E8B76004A7259 = {
 			isa = PBXGroup;
 			children = (
+				973B529C2744F5A70068F963 /* AllTransaction.storyboard.storyboard */,
 				274D522D273E8B76004A7259 /* HW_2.8 */,
 				274D522C273E8B76004A7259 /* Products */,
 			);
@@ -205,6 +208,7 @@
 				274D5238273E8B78004A7259 /* Assets.xcassets in Resources */,
 				274D5236273E8B76004A7259 /* InisialTabBar.storyboard in Resources */,
 				274D5246273EE068004A7259 /* Start.storyboard in Resources */,
+				973B529E2744F5A80068F963 /* AllTransaction.storyboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,6 +257,14 @@
 				9716160227418BC600B171E0 /* Base */,
 			);
 			name = AccountScreen.storyboard.storyboard;
+			sourceTree = "<group>";
+		};
+		973B529C2744F5A70068F963 /* AllTransaction.storyboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				973B529D2744F5A70068F963 /* Base */,
+			);
+			name = AllTransaction.storyboard.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
