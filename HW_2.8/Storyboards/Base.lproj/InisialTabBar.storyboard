@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Tab Bar Controller-->
+        <!--Start Tab Bar Controller-->
         <scene sceneID="k8P-Ix-ijB">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="DYo-Rh-iXD" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="DYo-Rh-iXD" customClass="StartTabBarController" customModule="HW_2_8" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="Sf1-db-Zrv"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2v2-0M-rXw">
@@ -38,21 +38,37 @@
             </objects>
             <point key="canvasLocation" x="1141" y="351"/>
         </scene>
-        <!--Root View Controller-->
+        <!--All Account Transaction Table View Controller-->
         <scene sceneID="GVD-0d-hvy">
             <objects>
-                <tableViewController id="88I-zn-cCR" sceneMemberID="viewController">
+                <tableViewController id="88I-zn-cCR" customClass="AllAccountTransactionTableViewController" customModule="HW_2_8" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="UhZ-pW-wB7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="Izz-3I-YvG">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="JpA-o5-6pX" detailTextLabel="1gp-mX-N5T" style="IBUITableViewCellStyleValue1" id="Izz-3I-YvG">
                                 <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Izz-3I-YvG" id="fpx-Wk-eK0">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JpA-o5-6pX">
+                                            <rect key="frame" x="20" y="15" width="25" height="14.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1gp-mX-N5T">
+                                            <rect key="frame" x="361" y="15" width="33" height="14.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -61,17 +77,22 @@
                             <outlet property="delegate" destination="88I-zn-cCR" id="NEc-hu-yHb"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="HGO-aL-tLy"/>
+                    <navigationItem key="navigationItem" id="HGO-aL-tLy">
+                        <barButtonItem key="leftBarButtonItem" title="Item" id="5lN-8y-YVP"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="ammoutAccountButton" destination="5lN-8y-YVP" id="4XR-Q6-WbG"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zZk-5n-Hox" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2120" y="1092"/>
         </scene>
-        <!--Item-->
+        <!--Операции-->
         <scene sceneID="DR2-8J-vFY">
             <objects>
                 <navigationController id="yrV-AK-vGO" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="kQr-gH-JCU"/>
+                    <tabBarItem key="tabBarItem" title="Операции" id="kQr-gH-JCU"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="cft-Up-wij">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

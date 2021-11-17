@@ -1,5 +1,5 @@
 //
-//  AccountExistingTableViewController.swift
+//  CurrentlyAccountTableViewController.swift
 //  HW_2.8
 //
 //  Created by Ilya Pokhodin on 14.11.2021.
@@ -7,55 +7,65 @@
 
 import UIKit
 
-protocol RefreshAccountViewControllerDelegete {
-    func addNewAccount(with newValue: AccountList)
-}
-
-class AccountExistingTableViewController: UITableViewController {
-    
-    @IBOutlet var amountAccountButton: UIBarButtonItem!
+class AllAccountTransactionTableViewController: UITableViewController {
+    @IBOutlet var ammoutAccountButton: UIBarButtonItem!
     
     var persons = Person.getPerson()
+    var personTransactions: [Transaction]!
+    var ammountArray: [Transaction] = []
+    var ammountRows1: [String: [Transaction]] = [:]
+    var datesArray: [String] = []
+    var date: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        amountAccountButton.isEnabled = false
-        print(persons)
+        date = apdateCountOfHowManyDate()
+        ammountRows1 = apdateArray()
+        ammoutAccountButton.isEnabled = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        amountAccountButton.title = String(ammountAllAccount()) + " ₽"
+        ammoutAccountButton.title = String(ammountAllAccount()) + " ₽"
         tableView.reloadData()
     }
 
     // MARK: - Table view data source
 
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//        // #warning Incomplete implementation, return the number of sections
-//        return 1
-//    }
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        
+        return date.count
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return date[section]
+    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       persons.accountList.count
+        let arrayOfTransaction = ammountRows1
+        let date = apdateCountOfHowManyDate()
+        let dataSection = date[section]
+        let transactionsArray = arrayOfTransaction[dataSection]!.count
+        return transactionsArray
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        let person = persons.accountList[indexPath.row]
+
+        let transactions = ammountRows1[date[indexPath.section]]!
+        let transaction = transactions[indexPath.row]
         var content = cell.defaultContentConfiguration()
         
-        content.text = person.accountName
-        let accountCount = String(person.accountStartCount + ammountAllTransaction(for: person)) + " ₽"
+        content.text = transaction.category
+        let accountCount: String
+        if transaction.typeTransaction == "Доход" {
+            accountCount = "+ \(transaction.amountTransaction) ₽"
+        } else { accountCount = "- \(transaction.amountTransaction) ₽" }
         content.secondaryText = accountCount
         cell.contentConfiguration = content
 
         return cell
     }
-    
-//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        tableView.deselectRow(at: indexPath, animated: true)
-//    }
 
     /*
     // Override to support conditional editing of the table view.
@@ -91,36 +101,56 @@ class AccountExistingTableViewController: UITableViewController {
         return true
     }
     */
+
+    /*
     // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if segue.identifier == "add" {
-            let viewController = segue.destination as? UINavigationController
-            guard let navigationVC = viewController else { return }
-            guard let addAccountTVC = navigationVC.topViewController as? AddAccountTableViewController else { return }
-            addAccountTVC.delegate = self
-        } else {
-            let viewController = segue.destination as? UINavigationController
-            guard let navigationVC = viewController else { return }
-            guard let currentlyTVC = navigationVC.topViewController as? CurrentlyAccountTableViewController else { return }
-            guard let indexPath = tableView.indexPathForSelectedRow else { return }
-            
-            var personAccountFroms: [Transaction] = []
-            for person in persons.transaction {
-                if person.accountTransactionFrom == persons.accountList[indexPath.row].accountName {
-                    personAccountFroms.append(person)
-                }
-            }
-            currentlyTVC.person = persons
-            currentlyTVC.personTransactions = personAccountFroms
-            let personFromIndex = persons.accountList[indexPath.row]
-            currentlyTVC.personIndex = personFromIndex
-        }
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
     }
+    */
+
 }
 
-extension AccountExistingTableViewController {
-    func ammountAllAccount() -> Int {
+extension AllAccountTransactionTableViewController {
+    func apdateCountOfHowManyDate() -> [String] {
+        var dates1: Set<String> = []
+        
+        for transaction in persons.transaction {
+            dates1.insert(transaction.dateTransaction)
+        }
+        let datesArray1 = Array(dates1)
+        let sortedDays = datesArray1.sorted(by: >)
+        return sortedDays
+    }
+    
+    func apdateArray() -> [String: [Transaction]] {
+        var ammountRows1: [String: [Transaction]] = [:]
+        var dates: Set<String> = []
+        
+        for transaction in persons.transaction {
+            dates.insert(transaction.dateTransaction)
+        }
+        
+        for date in dates {
+            var array: [Transaction] = []
+            for transaction in persons.transaction {
+                if transaction.dateTransaction == date {
+                    array.append(transaction)
+                    if ammountRows1[date]?.count != 0 {
+                        ammountRows1.updateValue(array, forKey: date)
+                    } else {
+                        ammountRows1[date] = array
+                    }
+                }
+            }
+        }
+        return ammountRows1
+    }
+    
+     func ammountAllAccount() -> Int {
         var ammount = 0
         for accountList in persons.accountList {
             ammount = ammount + accountList.accountStartCount
@@ -143,11 +173,5 @@ extension AccountExistingTableViewController {
             }
         }
         return summAllTransaction
-    }
-}
-
-extension AccountExistingTableViewController: RefreshAccountViewControllerDelegete {
-    func addNewAccount(with newValue: AccountList) {
-        persons.accountList.append(newValue)
     }
 }
