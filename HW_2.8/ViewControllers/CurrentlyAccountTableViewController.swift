@@ -45,22 +45,27 @@ class CurrentlyAccountTableViewController: UITableViewController {
         let transactionsArray = arrayOfTransaction[dataSection]!.count
         return transactionsArray
     }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 62
+    }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell2", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! TransactionsTableViewCell
 
         let transactions = ammountRows1[dates[indexPath.section]]!
         let transaction = transactions[indexPath.row]
-        var content = cell.defaultContentConfiguration()
-        
-        content.text = transaction.category
+
         let accountCount: String
         if transaction.typeTransaction == "Доход" {
             accountCount = "+ \(transaction.amountTransaction) ₽"
         } else { accountCount = "- \(transaction.amountTransaction) ₽" }
-        content.secondaryText = accountCount
-        cell.contentConfiguration = content
-
+        
+        cell.categoryTransactionLable.text = transaction.category
+        cell.ammountOperationTransactionLable.text = accountCount
+        cell.accountFromTransactionLable.text = transaction.accountTransactionFrom
+        cell.balanceTransactionLable.text = "0"
+        
         return cell
     }
 

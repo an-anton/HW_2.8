@@ -54,10 +54,12 @@ extension AddAccountTableViewController: UITextFieldDelegate {
     private func createToolBar() {
         let toolBar = UIToolbar()
         toolBar.sizeToFit()
-        let doneButton = UIBarButtonItem(title: "done",
-                                         style: .done,
-                                         target: self,
-                                         action: #selector(doneClicked))
+        let doneButton = UIBarButtonItem(
+            title: "done",
+            style: .done,
+            target: self,
+            action: #selector(doneClicked)
+        )
         toolBar.setItems([doneButton], animated: true)
         startAmmountNewCard.inputAccessoryView = toolBar
     }

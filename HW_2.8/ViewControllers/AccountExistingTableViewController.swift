@@ -36,7 +36,7 @@ class AccountExistingTableViewController: UITableViewController {
 //    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       persons.accountList.count
+        persons.accountList.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -58,20 +58,17 @@ class AccountExistingTableViewController: UITableViewController {
         if segue.identifier == "add" {
             let viewController = segue.destination as? UINavigationController
             guard let navigationVC = viewController else { return }
-            guard let addAccountTVC = navigationVC.topViewController as? AddAccountTableViewController else { return }
+            guard let addAccountTVC = navigationVC.topViewController
+                    as? AddAccountTableViewController else { return }
             addAccountTVC.delegate = self
         } else {
             let viewController = segue.destination as? UINavigationController
             guard let navigationVC = viewController else { return }
-            guard let currentlyTVC = navigationVC.topViewController as? CurrentlyAccountTableViewController else { return }
+            guard let currentlyTVC = navigationVC.topViewController
+                    as? CurrentlyAccountTableViewController else { return }
             guard let indexPath = tableView.indexPathForSelectedRow else { return }
+            let personAccountFroms = transactionsFromCurrentAccount(with: indexPath)
             
-            var personAccountFroms: [Transaction] = []
-            for person in persons.transaction {
-                if person.accountTransactionFrom == persons.accountList[indexPath.row].accountName {
-                    personAccountFroms.append(person)
-                }
-            }
             currentlyTVC.person = persons
             currentlyTVC.personTransactions = personAccountFroms
             let personFromIndex = persons.accountList[indexPath.row]
@@ -111,5 +108,17 @@ extension AccountExistingTableViewController: RefreshAccountViewControllerDelege
     func addNewAccount(with newValue: AccountList) {
         persons.accountList.append(newValue)
         tableView.reloadData()
+    }
+}
+
+extension AccountExistingTableViewController {
+    func transactionsFromCurrentAccount(with indexPath: IndexPath) -> [Transaction] {
+        var personAccountFroms: [Transaction] = []
+        for person in persons.transaction {
+            if person.accountTransactionFrom == persons.accountList[indexPath.row].accountName {
+                personAccountFroms.append(person)
+            }
+        }
+        return personAccountFroms
     }
 }
