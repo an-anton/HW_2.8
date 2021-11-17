@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Add New Operacion View Controller-->
+        <!--Title-->
         <scene sceneID="cBj-8Z-hze">
             <objects>
                 <viewController id="eUK-Wd-BNa" customClass="AddNewOperacionViewController" customModule="HW_2_8" customModuleProvider="target" sceneMemberID="viewController">
@@ -16,36 +16,60 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="WQa-dB-ERu">
-                                <rect key="frame" x="112" y="56" width="191" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="RG2-5l-h4n">
+                                <rect key="frame" x="50" y="108" width="314" height="32"/>
                                 <segments>
-                                    <segment title="First"/>
-                                    <segment title="Second"/>
+                                    <segment title="Расход"/>
+                                    <segment title="Доход"/>
+                                    <segment title=""/>
+                                    <segment title=""/>
                                 </segments>
                             </segmentedControl>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aYx-ea-9AU">
-                                <rect key="frame" x="20" y="101" width="358" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="введите сумму" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LdE-Q9-fu3">
+                                <rect key="frame" x="50" y="184" width="314" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                <connections>
+                                    <outlet property="delegate" destination="eUK-Wd-BNa" id="hD3-3G-AyT"/>
+                                </connections>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="₽" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BhU-Lv-XQ2">
-                                <rect key="frame" x="383" y="110" width="11" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="дата: сегодня" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zCJ-E3-hgb">
+                                <rect key="frame" x="50" y="248" width="314" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="eUK-Wd-BNa" id="J8a-IN-DdK"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="00k-WU-GrN"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="zCJ-E3-hgb" firstAttribute="trailing" secondItem="LdE-Q9-fu3" secondAttribute="trailing" id="3TQ-iM-nSZ"/>
+                            <constraint firstItem="RG2-5l-h4n" firstAttribute="leading" secondItem="00k-WU-GrN" secondAttribute="leading" constant="50" id="OIe-gm-3V2"/>
+                            <constraint firstItem="00k-WU-GrN" firstAttribute="trailing" secondItem="LdE-Q9-fu3" secondAttribute="trailing" constant="50" id="TtY-t4-dln"/>
+                            <constraint firstItem="LdE-Q9-fu3" firstAttribute="leading" secondItem="00k-WU-GrN" secondAttribute="leading" constant="50" id="V7K-77-dIY"/>
+                            <constraint firstItem="RG2-5l-h4n" firstAttribute="top" secondItem="00k-WU-GrN" secondAttribute="top" constant="20" id="kcG-lD-BPw"/>
+                            <constraint firstItem="zCJ-E3-hgb" firstAttribute="leading" secondItem="LdE-Q9-fu3" secondAttribute="leading" id="pjK-CH-17x"/>
+                            <constraint firstItem="LdE-Q9-fu3" firstAttribute="top" secondItem="RG2-5l-h4n" secondAttribute="bottom" constant="45" id="pkf-FT-u0i"/>
+                            <constraint firstItem="00k-WU-GrN" firstAttribute="trailing" secondItem="RG2-5l-h4n" secondAttribute="trailing" constant="50" id="x5Q-Yb-uWj"/>
+                            <constraint firstItem="zCJ-E3-hgb" firstAttribute="top" secondItem="LdE-Q9-fu3" secondAttribute="bottom" constant="30" id="yTi-v0-K8A"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="dDO-0W-mH5"/>
+                    <navigationItem key="navigationItem" title="Title" id="g5U-uz-4bm">
+                        <barButtonItem key="leftBarButtonItem" title="Отмена" id="VFe-P8-ddB"/>
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Добавить" id="aRw-p2-OLH"/>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="dateTextFieldOutlet" destination="zCJ-E3-hgb" id="Ana-VY-Zuq"/>
+                        <outlet property="saveButtonOutlet" destination="aRw-p2-OLH" id="QiF-eS-C4s"/>
+                        <outlet property="sumTextFieldOutlet" destination="LdE-Q9-fu3" id="6nm-dG-bJp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QmS-CR-7bz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3219" y="1136"/>
+            <point key="canvasLocation" x="3226" y="1136"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="MEy-rI-Bwc">
