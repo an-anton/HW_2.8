@@ -17,18 +17,14 @@ class LoginViewController: UIViewController {
         }
     }
      // MARK: - Private properties
-    private let user = "User"
-    private let password = "123"
+    private let user = ""
+    private let password = ""
     
    
      // MARK: - @IBActions
     @IBAction func logInButtonAction() {
-        if loginTextField.text == "" && passwordTextField.text == "" {
+        if loginTextField.text != user || passwordTextField.text != password {
             showAlert(message: "Enter your username and password")
-        } else if loginTextField.text == "" || passwordTextField.text == "" {
-            showAlert(message: "Enter the correct username or password")
-        } else if loginTextField.text == user && passwordTextField.text != password {
-            showAlert(message: "Enter the correct password")
         }
     }
     @IBAction func forgotAction(_ sender: UIButton) {
