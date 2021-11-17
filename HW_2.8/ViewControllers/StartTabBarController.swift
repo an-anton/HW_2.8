@@ -16,12 +16,12 @@ class StartTabBarController: UITabBarController {
     
     private func setupViewControllers() {
         
-        for viewController in viewControllers! {
-            let persons = Person.getPerson()
-            if let AccountExistingVC = viewController as? AccountExistingTableViewController {
-                //AccountExistingVC.persons = persons
-            }
-        }
+//        for viewController in viewControllers! {
+//            let persons = Person.getPerson()
+//            if let AccountExistingVC = viewController as? AccountExistingTableViewController {
+//                //AccountExistingVC.persons = persons
+//            }
+//        }
         //guard let pirsonDeteilVC = viewControllers?.last as? PirsonDetailTableViewController else { return }
         //pirsonDeteilVC.personsList = persons
     }
