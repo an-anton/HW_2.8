@@ -45,6 +45,62 @@ extension Person {
                ],
                transaction: [
                 Transaction(
+                    dateTransaction: "21.11.2021",
+                    amountTransaction: 1000, category: "Продукты",
+                    typeTransaction: "Расход",
+                    accountTransactionFrom: "Карта Тинькофф",
+                    accountTransactionTo: ""
+                ),
+                Transaction(
+                    dateTransaction: "20.11.2021",
+                    amountTransaction: 1000, category: "Продукты",
+                    typeTransaction: "Расход",
+                    accountTransactionFrom: "Карта Тинькофф",
+                    accountTransactionTo: ""
+                ),
+                Transaction(
+                    dateTransaction: "17.11.2021",
+                    amountTransaction: 5000, category: "Продукты",
+                    typeTransaction: "Расход",
+                    accountTransactionFrom: "Карта Тинькофф",
+                    accountTransactionTo: ""
+                ),
+                Transaction(
+                    dateTransaction: "17.11.2021",
+                    amountTransaction: 2000, category: "Мебель",
+                    typeTransaction: "Расход",
+                    accountTransactionFrom: "Карта Тинькофф",
+                    accountTransactionTo: ""
+                ),
+                Transaction(
+                    dateTransaction: "16.11.2021",
+                    amountTransaction: 10000, category: "Кешбек",
+                    typeTransaction: "Доход",
+                    accountTransactionFrom: "Карта Тинькофф",
+                    accountTransactionTo: ""
+                ),
+                Transaction(
+                    dateTransaction: "15.11.2021",
+                    amountTransaction: 5000, category: "Аванс",
+                    typeTransaction: "Доход",
+                    accountTransactionFrom: "Карта Тинькофф",
+                    accountTransactionTo: ""
+                ),
+                Transaction(
+                    dateTransaction: "10.11.2021",
+                    amountTransaction: 1000, category: "Бензин",
+                    typeTransaction: "Расход",
+                    accountTransactionFrom: "Карта Тинькофф",
+                    accountTransactionTo: ""
+                ),
+                Transaction(
+                    dateTransaction: "07.11.2021",
+                    amountTransaction: 2000, category: "Одежда",
+                    typeTransaction: "Расход",
+                    accountTransactionFrom: "Карта Тинькофф",
+                    accountTransactionTo: ""
+                ),
+                Transaction(
                     dateTransaction: "01.11.2021",
                     amountTransaction: 5000, category: "Машина",
                     typeTransaction: "Расход",

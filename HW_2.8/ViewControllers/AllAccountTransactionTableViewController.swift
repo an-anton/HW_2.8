@@ -12,10 +12,11 @@ class AllAccountTransactionTableViewController: UITableViewController {
     
     var persons = Person.getPerson()
     var personTransactions: [Transaction]!
-    var ammountArray: [Transaction] = []
-    var ammountRows1: [String: [Transaction]] = [:]
-    var datesArray: [String] = []
-    var date: [String] = []
+    
+    private var ammountArray: [Transaction] = []
+    private var ammountRows1: [String: [Transaction]] = [:]
+    private var datesArray: [String] = []
+    private var date: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
