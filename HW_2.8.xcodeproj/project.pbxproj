@@ -26,6 +26,7 @@
 		973B529B274435B30068F963 /* AllAccountTransactionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 973B529A274435B30068F963 /* AllAccountTransactionTableViewController.swift */; };
 		973B529E2744F5A80068F963 /* AllTransaction.storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 973B529C2744F5A70068F963 /* AllTransaction.storyboard.storyboard */; };
 		97717B7E27455A4E009674F9 /* TransactionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97717B7D27455A4D009674F9 /* TransactionsTableViewCell.swift */; };
+		97EB33C6274947AC00AD27C1 /* ChosenAccountTypeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97EB33C5274947AC00AD27C1 /* ChosenAccountTypeTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		973B529A274435B30068F963 /* AllAccountTransactionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllAccountTransactionTableViewController.swift; sourceTree = "<group>"; };
 		973B529D2744F5A70068F963 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = HW_2.8/Storyboards/Base.lproj/AllTransaction.storyboard.storyboard; sourceTree = "<group>"; };
 		97717B7D27455A4D009674F9 /* TransactionsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsTableViewCell.swift; sourceTree = "<group>"; };
+		97EB33C5274947AC00AD27C1 /* ChosenAccountTypeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChosenAccountTypeTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 				973B529827442F4A0068F963 /* StartTabBarController.swift */,
 				971615FF2741807200B171E0 /* AccountExistingTableViewController.swift */,
 				9716160427419B5900B171E0 /* AddAccountTableViewController.swift */,
+				97EB33C5274947AC00AD27C1 /* ChosenAccountTypeTableViewController.swift */,
 				971616062741A10300B171E0 /* CurrentlyAccountTableViewController.swift */,
 				97717B7D27455A4D009674F9 /* TransactionsTableViewCell.swift */,
 				973B529A274435B30068F963 /* AllAccountTransactionTableViewController.swift */,
@@ -229,6 +232,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97EB33C6274947AC00AD27C1 /* ChosenAccountTypeTableViewController.swift in Sources */,
 				971616072741A10300B171E0 /* CurrentlyAccountTableViewController.swift in Sources */,
 				274D5233273E8B76004A7259 /* LoginViewController.swift in Sources */,
 				973B529927442F4A0068F963 /* StartTabBarController.swift in Sources */,

@@ -7,12 +7,14 @@
 
 struct Person {
     var name: String
+    var accountTypes: [AccountTypes]
     var accountList: [AccountList]
     var transaction: [Transaction]
 }
 
 struct AccountList {
     var accountName: String
+    var accountType: AccountTypes
     var accountStartCount: Int
 }
 
@@ -25,21 +27,30 @@ struct Transaction {
     let accountTransactionTo: String // если тип "перевод", то на какой счёт был перевод
 }
 
+enum AccountTypes: String {
+    case card = "Карта"
+    case cash = "Наличные"
+}
+
 extension Person {
     static func getPerson() -> Person {
         
         Person(name: "ilya",
+               accountTypes: [.card, .cash],
                accountList: [
                 AccountList(
                     accountName: "Карта Тинькофф",
+                    accountType: .card,
                     accountStartCount: 1000
                 ),
                 AccountList(
                     accountName: "Карта ВТБ",
+                    accountType: .card,
                     accountStartCount: 2000
                 ),
                 AccountList(
                     accountName: "Карта Сбербанка",
+                    accountType: .cash,
                     accountStartCount: 5000
                 )
                ],

@@ -30,10 +30,10 @@ class AccountExistingTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//        // #warning Incomplete implementation, return the number of sections
-//        return 1
-//    }
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return 1
+    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         persons.accountList.count
@@ -61,6 +61,7 @@ class AccountExistingTableViewController: UITableViewController {
             guard let addAccountTVC = navigationVC.topViewController
                     as? AddAccountTableViewController else { return }
             addAccountTVC.delegate = self
+            addAccountTVC.person = persons
         } else {
             let viewController = segue.destination as? UINavigationController
             guard let navigationVC = viewController else { return }
@@ -120,5 +121,8 @@ extension AccountExistingTableViewController {
             }
         }
         return personAccountFroms
+    }
+    
+    func updateHowRowSection() {
     }
 }
