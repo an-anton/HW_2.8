@@ -20,19 +20,23 @@ class LoginViewController: UIViewController {
     private let user = ""
     private let password = ""
     
-   
      // MARK: - @IBActions
     @IBAction func logInButtonAction() {
         if loginTextField.text != user || passwordTextField.text != password {
             showAlert(message: "Enter your username and password")
         }
     }
+    
     @IBAction func forgotAction(_ sender: UIButton) {
         sender.tag == 0
         ? showAlert(message: "Your username is \(user)")
         : showAlert(message: "Your password is \(password)")
     }
+    
+    @IBAction func unwind(for unwindSegue: UIStoryboardSegue) {
+    }
 }
+
  // MARK: - UIAlertController
 extension LoginViewController {
     private func showAlert(message: String, title: String? = nil) {
@@ -48,10 +52,12 @@ extension LoginViewController: UITextFieldDelegate {
         super.view.endEditing(true)
         view.endEditing(true)
     }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == loginTextField {
             passwordTextField.becomeFirstResponder()
-        } else {
+        }
+        else {
             logInButtonAction()
             performSegue(withIdentifier: "goToNext", sender: nil)
         }

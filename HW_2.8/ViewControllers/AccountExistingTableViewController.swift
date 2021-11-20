@@ -16,39 +16,52 @@ class AccountExistingTableViewController: UITableViewController {
     @IBOutlet var amountAccountButton: UIBarButtonItem!
     
     var persons = Person.getPerson()
+    var accountTypes: [AccountTypes] = []
+    var accountForTypes: [String: [AccountList]] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         amountAccountButton.isEnabled = false
-        print(persons)
+        accountTypes = coutingNumberOfTypes()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         amountAccountButton.title = String(ammountAllAccount()) + " ₽"
+        accountForTypes = chosenAccountForTypes()
     }
 
     // MARK: - Table view data source
 
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//        // #warning Incomplete implementation, return the number of sections
-//        return 1
-//    }
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        accountTypes.count
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        accountTypes[section].rawValue
+    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        persons.accountList.count
+        let dictionaryOfAccountList = accountForTypes
+        let typeSection = accountTypes[section].rawValue
+        let countAccountInAccountList = dictionaryOfAccountList[typeSection]!.count
+        return countAccountInAccountList
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        let person = persons.accountList[indexPath.row]
+        
+        let accountsFromCurrentType = accountForTypes[accountTypes[indexPath.section].rawValue]!
+        let currentAccount = accountsFromCurrentType[indexPath.row]
+        
         var content = cell.defaultContentConfiguration()
         
-        content.text = person.accountName
-        let accountCount = String(person.accountStartCount + ammountAllTransaction(for: person)) + " ₽"
+        let accountCount = String(currentAccount.accountStartCount + ammountAllTransaction(for: currentAccount)) + " ₽"
+        content.text = currentAccount.accountName
         content.secondaryText = accountCount
+        
         cell.contentConfiguration = content
-
+        
         return cell
     }
     
@@ -61,18 +74,23 @@ class AccountExistingTableViewController: UITableViewController {
             guard let addAccountTVC = navigationVC.topViewController
                     as? AddAccountTableViewController else { return }
             addAccountTVC.delegate = self
+            addAccountTVC.person = persons
         } else {
             let viewController = segue.destination as? UINavigationController
             guard let navigationVC = viewController else { return }
             guard let currentlyTVC = navigationVC.topViewController
                     as? CurrentlyAccountTableViewController else { return }
             guard let indexPath = tableView.indexPathForSelectedRow else { return }
-            let personAccountFroms = transactionsFromCurrentAccount(with: indexPath)
+            print(indexPath)
+            let accountsFromCurrentType = accountForTypes[accountTypes[indexPath.section].rawValue]!
+            let currentAccount = accountsFromCurrentType[indexPath.row]
+            
+            let personAccountFroms = choosenTransactionsFromCurrentAccount(with: currentAccount)
             
             currentlyTVC.person = persons
             currentlyTVC.personTransactions = personAccountFroms
-            let personFromIndex = persons.accountList[indexPath.row]
-            currentlyTVC.personIndex = personFromIndex
+//            let personFromIndex = persons.accountList[indexPath.row]
+            currentlyTVC.personIndex = currentAccount
         }
     }
 }
@@ -102,23 +120,44 @@ extension AccountExistingTableViewController {
         }
         return summAllTransaction
     }
+    
+    func coutingNumberOfTypes() -> [AccountTypes] {
+        let accountTypes: [AccountTypes] = [.cash, .card]
+        return accountTypes
+    }
+    
+    func choosenTransactionsFromCurrentAccount(with currentAccount: AccountList) -> [Transaction] {
+        var personAccountFroms: [Transaction] = []
+        for person in persons.transaction {
+            if person.accountTransactionFrom == currentAccount.accountName {
+                personAccountFroms.append(person)
+            }
+        }
+        return personAccountFroms
+    }
+
+    func chosenAccountForTypes() -> [String: [AccountList]] {
+        var accountsForTypes: [String: [AccountList]] = [:]
+        for currentlyType in persons.accountTypes {
+            var accounts: [AccountList] = []
+            for account in persons.accountList {
+                if account.accountType == currentlyType {
+                    accounts.append(account)
+                    if accountsForTypes[currentlyType.rawValue]?.count != 0 {
+                        accountsForTypes.updateValue(accounts, forKey: currentlyType.rawValue)
+                    } else {
+                        accountsForTypes[currentlyType.rawValue] = accounts
+                    }
+                }
+            }
+        }
+        return accountsForTypes
+    }
 }
     // MARK: - Delegate
 extension AccountExistingTableViewController: RefreshAccountViewControllerDelegete {
     func addNewAccount(with newValue: AccountList) {
         persons.accountList.append(newValue)
         tableView.reloadData()
-    }
-}
-
-extension AccountExistingTableViewController {
-    func transactionsFromCurrentAccount(with indexPath: IndexPath) -> [Transaction] {
-        var personAccountFroms: [Transaction] = []
-        for person in persons.transaction {
-            if person.accountTransactionFrom == persons.accountList[indexPath.row].accountName {
-                personAccountFroms.append(person)
-            }
-        }
-        return personAccountFroms
     }
 }

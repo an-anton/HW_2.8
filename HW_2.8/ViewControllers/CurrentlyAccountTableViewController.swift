@@ -14,16 +14,14 @@ class CurrentlyAccountTableViewController: UITableViewController {
     var person: Person!
     var personIndex: AccountList!
     var personTransactions: [Transaction]!
-    // удалить var ammountArray: [Transaction] = []
     var datesWithCurrentlyAccountTransaction: [String: [Transaction]] = [:]
-    var datesArray: [String] = []
-    var dates: [String] = []
+    //var datesArray: [String] = []
+    var datesTransaction: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        dates = datesFromCurrentlyAccount()
-        print(dates)
-        datesWithCurrentlyAccountTransaction = transactionsFromCurrentAccountForDates()
+        datesTransaction = ChosenDatesTransactionFromCurrentlyAccount()
+        datesWithCurrentlyAccountTransaction = chosenTransactionsFromCurrentlyAccountForDates()
         accountCountButton.title = String(ammountTransactionsForCurrentAccount()) + " ₽"
         accountCountButton.isEnabled = false
     }
@@ -31,16 +29,16 @@ class CurrentlyAccountTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return dates.count
+        return datesTransaction.count
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return dates[section]
+        return datesTransaction[section]
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let arrayOfTransaction = datesWithCurrentlyAccountTransaction
-        let dateSection = dates[section]
+        let dateSection = datesTransaction[section]
         let transactionsArray = arrayOfTransaction[dateSection]!.count
         return transactionsArray
     }
@@ -52,7 +50,7 @@ class CurrentlyAccountTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! TransactionsTableViewCell
 
-        let transactions = datesWithCurrentlyAccountTransaction[dates[indexPath.section]]!
+        let transactions = datesWithCurrentlyAccountTransaction[datesTransaction[indexPath.section]]!
         let transaction = transactions[indexPath.row]
 
         let accountCount: String
@@ -90,34 +88,34 @@ class CurrentlyAccountTableViewController: UITableViewController {
 // MARK: - Extension
 
 extension CurrentlyAccountTableViewController {
-    func datesFromCurrentlyAccount() -> [String] {
-        var dates1: Set<String> = []
+    func ChosenDatesTransactionFromCurrentlyAccount() -> [String] {
+        var datesTransaction: Set<String> = []
         
         for personTransaction in personTransactions {
-            dates1.insert(personTransaction.dateTransaction)
+            datesTransaction.insert(personTransaction.dateTransaction)
         }
-        let datesArray1 = Array(dates1)
-        let sortedDays = datesArray1.sorted(by: >)
-        return sortedDays
+        let datesTransactionArray = Array(datesTransaction)
+        let sortedDaysTransaction = datesTransactionArray.sorted(by: >)
+        return sortedDaysTransaction
     }
 
-    func transactionsFromCurrentAccountForDates() -> [String: [Transaction]] {
-        var transactionsDictionary: [String: [Transaction]] = [:]
+    func chosenTransactionsFromCurrentlyAccountForDates() -> [String: [Transaction]] {
+        var transactionsForDates: [String: [Transaction]] = [:]
 
-        for date in dates {
+        for currentlyDate in datesTransaction {
             var transactions: [Transaction] = []
             for personTransaction in personTransactions {
-                if personTransaction.dateTransaction == date {
+                if personTransaction.dateTransaction == currentlyDate {
                     transactions.append(personTransaction)
-                    if transactionsDictionary[date]?.count != 0 {
-                        transactionsDictionary.updateValue(transactions, forKey: date)
+                    if transactionsForDates[currentlyDate]?.count != 0 {
+                        transactionsForDates.updateValue(transactions, forKey: currentlyDate)
                     } else {
-                        transactionsDictionary[date] = transactions
+                        transactionsForDates[currentlyDate] = transactions
                     }
                 }
             }
         }
-        return transactionsDictionary
+        return transactionsForDates
     }
     
     func ammountTransactionsForCurrentAccount() -> Int {

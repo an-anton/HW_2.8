@@ -7,19 +7,25 @@
 
 import UIKit
 
+protocol IndexDidSelectedRowViewControllerDelegate {
+    func updateType(with newValue: AccountTypes)
+}
+
 class AddAccountTableViewController: UITableViewController {
 
     @IBOutlet var nameNewCard: UITextField!
     @IBOutlet var startAmmountNewCard: UITextField!
     @IBOutlet var saveButtonOutlet: UIBarButtonItem!
+    @IBOutlet var typeLable: UILabel!
     
     var person: Person!
     var delegate: RefreshAccountViewControllerDelegete!
+    var accountType: AccountTypes!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        saveButtonOutlet.isEnabled = false
-        createToolBar()
+//        saveButtonOutlet.isEnabled = false
+//        createToolBar()
     }
     
     // MARK: - IBActions
@@ -32,10 +38,19 @@ class AddAccountTableViewController: UITableViewController {
         let newAccountStartCount = Int(startAmmountNewCard.text!) ?? 0
         let newAccount = AccountList(
             accountName: newAccountName,
+            accountType: accountType,
             accountStartCount: newAccountStartCount
         )
         delegate.addNewAccount(with: newAccount)
         dismiss(animated: true, completion: .none)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let viewController = segue.destination as? UINavigationController
+        guard let chosenAccountType = viewController?.topViewController
+                as? ChosenAccountTypeTableViewController else { return }
+        chosenAccountType.accountEnumType = person.accountTypes
+        chosenAccountType.delegete = self
     }
 }
  // MARK: - EXTENSION
@@ -66,5 +81,12 @@ extension AddAccountTableViewController: UITextFieldDelegate {
     @objc func doneClicked() {
         view.endEditing(true)
         startAmmountNewCard.endEditing(true)
+    }
+}
+
+extension AddAccountTableViewController: IndexDidSelectedRowViewControllerDelegate {
+    func updateType(with newValue: AccountTypes) {
+        typeLable.text = newValue.rawValue
+        accountType = newValue
     }
 }
