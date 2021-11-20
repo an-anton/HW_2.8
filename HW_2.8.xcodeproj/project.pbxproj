@@ -66,7 +66,6 @@
 		274D5222273E8B76004A7259 = {
 			isa = PBXGroup;
 			children = (
-				973B529C2744F5A70068F963 /* AllTransaction.storyboard.storyboard */,
 				274D522D273E8B76004A7259 /* HW_2.8 */,
 				274D522C273E8B76004A7259 /* Products */,
 			);
@@ -101,6 +100,7 @@
 				274D5234273E8B76004A7259 /* InisialTabBar.storyboard */,
 				9716160127418BC600B171E0 /* AccountScreen.storyboard.storyboard */,
 				27B2C98D2745410700D4F1BA /* AddNewOperacion.storyboard */,
+				973B529C2744F5A70068F963 /* AllTransaction.storyboard.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";

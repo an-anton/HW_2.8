@@ -84,6 +84,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="fQF-LS-i45">
                             <connections>
+                                <action selector="addButton:" destination="88I-zn-cCR" id="6NQ-rg-pxa"/>
                                 <segue destination="ood-fD-ZqX" kind="presentation" id="BlS-cG-TbQ"/>
                             </connections>
                         </barButtonItem>
