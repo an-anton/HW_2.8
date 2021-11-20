@@ -49,7 +49,7 @@ extension Person {
                     accountStartCount: 2000
                 ),
                 AccountList(
-                    accountName: "Карта Сбербанка",
+                    accountName: "Кошелёк",
                     accountType: .cash,
                     accountStartCount: 5000
                 )
