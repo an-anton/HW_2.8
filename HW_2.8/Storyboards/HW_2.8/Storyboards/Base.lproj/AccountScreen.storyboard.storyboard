@@ -99,8 +99,34 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="Cha-v2-ysB">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cell" id="WW6-cV-OLS">
                                         <rect key="frame" x="20" y="61.5" width="374" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WW6-cV-OLS" id="4BK-HD-l8G">
+                                            <rect key="frame" x="0.0" y="0.0" width="344.5" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Карта" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qpv-vY-z9M">
+                                                    <rect key="frame" x="20" y="11.5" width="299" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Qpv-vY-z9M" firstAttribute="leading" secondItem="4BK-HD-l8G" secondAttribute="leadingMargin" id="2LZ-GD-vsI"/>
+                                                <constraint firstItem="Qpv-vY-z9M" firstAttribute="bottom" secondItem="4BK-HD-l8G" secondAttribute="bottomMargin" id="72l-35-hT5"/>
+                                                <constraint firstAttribute="trailing" secondItem="Qpv-vY-z9M" secondAttribute="trailing" constant="25.5" id="DTn-DM-Sah"/>
+                                                <constraint firstItem="Qpv-vY-z9M" firstAttribute="leading" secondItem="4BK-HD-l8G" secondAttribute="leadingMargin" id="Ygw-Lm-01p"/>
+                                                <constraint firstItem="Qpv-vY-z9M" firstAttribute="top" secondItem="4BK-HD-l8G" secondAttribute="topMargin" constant="0.5" id="mV1-iz-po4"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="qnn-x5-dNx" kind="show" id="5CP-rl-PGS"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="Cha-v2-ysB">
+                                        <rect key="frame" x="20" y="105" width="374" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Cha-v2-ysB" id="H6n-1k-Lqb">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
@@ -154,11 +180,58 @@
                         <outlet property="nameNewCard" destination="QAn-G9-7MB" id="noc-16-vas"/>
                         <outlet property="saveButtonOutlet" destination="rpu-Bs-H3Q" id="ESp-Vr-B4d"/>
                         <outlet property="startAmmountNewCard" destination="Kmr-ZK-apf" id="wyl-Vy-n0q"/>
+                        <outlet property="typeLable" destination="Qpv-vY-z9M" id="Vl3-7U-LX8"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5KM-Uc-iEJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4785.507246376812" y="350.89285714285711"/>
+        </scene>
+        <!--Выбор типа счёта-->
+        <scene sceneID="Ka9-wf-b15">
+            <objects>
+                <tableViewController id="s7H-Sm-1II" customClass="ChosenAccountTypeTableViewController" customModule="HW_2_8" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Uqi-af-Zby">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="9ml-eH-mW4">
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9ml-eH-mW4" id="atI-Yj-B0s">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="s7H-Sm-1II" id="o2U-gi-xCk"/>
+                            <outlet property="delegate" destination="s7H-Sm-1II" id="xq6-4U-8jC"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Выбор типа счёта" id="yFK-Tz-L7T"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YF4-rz-W7p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6561" y="351"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="5Jy-uF-LLr">
+            <objects>
+                <navigationController id="qnn-x5-dNx" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Pr8-YK-ItH"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="FxO-Yf-ySK">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="s7H-Sm-1II" kind="relationship" relationship="rootViewController" id="Z4R-Dv-6cQ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xyX-0y-ga7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5672" y="351"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="DL7-Qx-44M">
@@ -181,13 +254,13 @@
         <scene sceneID="w3D-08-Irr">
             <objects>
                 <tableViewController id="TCi-3X-Dge" customClass="CurrentlyAccountTableViewController" customModule="HW_2_8" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="4RL-V4-lzP">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="4RL-V4-lzP">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="customCell" rowHeight="61" id="xOO-pi-hex" customClass="TransactionsTableViewCell" customModule="HW_2_8" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="44.5" width="414" height="61"/>
+                                <rect key="frame" x="0.0" y="49.5" width="414" height="61"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xOO-pi-hex" id="pmJ-o1-scy">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="61"/>
@@ -198,14 +271,21 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Счёт списания" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D6K-wK-np3">
-                                            <rect key="frame" x="88" y="33" width="157" height="16"/>
+                                            <rect key="frame" x="88" y="32" width="157" height="16"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Сумма списания" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m9E-bH-t9D">
-                                            <rect key="frame" x="253" y="6" width="141" height="21"/>
+                                            <rect key="frame" x="253" y="11" width="141" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Категория" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zPx-hd-yZ0">
+                                            <rect key="frame" x="88" y="11" width="157" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -218,13 +298,6 @@
                                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Категория" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zPx-hd-yZ0">
-                                            <rect key="frame" x="88" y="6" width="157" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
@@ -232,6 +305,7 @@
                                     <outlet property="ammountOperationTransactionLable" destination="m9E-bH-t9D" id="eeP-Bj-ktm"/>
                                     <outlet property="balanceTransactionLable" destination="kLO-nn-wdy" id="BO0-LW-HWF"/>
                                     <outlet property="categoryTransactionLable" destination="zPx-hd-yZ0" id="Hxy-4P-bGh"/>
+                                    <outlet property="imageCategotyTransactionLable" destination="rYZ-Bu-eTC" id="zF3-wO-7Cd"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -241,12 +315,17 @@
                             <outlet property="delegate" destination="TCi-3X-Dge" id="T6L-ZP-iEN"/>
                         </connections>
                     </tableView>
+                    <toolbarItems>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="woY-1p-zeW"/>
+                        <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="HZb-2l-aQy"/>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" id="aCa-Ib-fwE">
                         <barButtonItem key="leftBarButtonItem" title="Item" id="2xE-l4-DfZ">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="483-zW-O03"/>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="accountCountButton" destination="2xE-l4-DfZ" id="CEC-cm-1V4"/>
                     </connections>
@@ -276,15 +355,9 @@
         <scene sceneID="bmj-0t-zv8">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5Ci-2i-5EQ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Счета" id="PvP-H8-T7r">
+                    <tabBarItem key="tabBarItem" title="Счета" image="archivebox" catalog="system" id="PvP-H8-T7r">
                         <color key="badgeColor" systemColor="systemYellowColor"/>
-                        <imageReference key="selectedImage" image="book" catalog="system" symbolScale="large" renderingMode="hierarchical-single">
-                            <hierarchicalColors>
-                                <color name="AccentColor"/>
-                                <color systemColor="secondaryLabelColor"/>
-                                <color systemColor="tertiaryLabelColor"/>
-                            </hierarchicalColors>
-                        </imageReference>
+                        <imageReference key="selectedImage" image="archivebox.fill" catalog="system"/>
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="11j-Fb-43t">
@@ -302,21 +375,13 @@
         </scene>
     </scenes>
     <resources>
-        <image name="book" catalog="system" width="128" height="99"/>
-        <namedColor name="AccentColor">
-            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <systemColor name="secondaryLabelColor">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
+        <image name="archivebox" catalog="system" width="128" height="106"/>
+        <image name="archivebox.fill" catalog="system" width="128" height="106"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="tertiaryLabelColor">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
