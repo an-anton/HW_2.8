@@ -13,7 +13,7 @@ class TransactionsTableViewCell: UITableViewCell {
     @IBOutlet var ammountOperationTransactionLable: UILabel!
     @IBOutlet var accountFromTransactionLable: UILabel!
     @IBOutlet var balanceTransactionLable: UILabel!
-    
+    @IBOutlet var imageCategotyTransactionLable: UIImageView!
     
 //    override func awakeFromNib() {
 //        super.awakeFromNib()

@@ -14,8 +14,8 @@ class CurrentlyAccountTableViewController: UITableViewController {
     var person: Person!
     var personIndex: AccountList!
     var personTransactions: [Transaction]!
-    var ammountArray: [Transaction] = []
-    var ammountRows1: [String: [Transaction]] = [:]
+    // удалить var ammountArray: [Transaction] = []
+    var datesWithCurrentlyAccountTransaction: [String: [Transaction]] = [:]
     var datesArray: [String] = []
     var dates: [String] = []
     
@@ -23,7 +23,7 @@ class CurrentlyAccountTableViewController: UITableViewController {
         super.viewDidLoad()
         dates = datesFromCurrentlyAccount()
         print(dates)
-        ammountRows1 = transactionsFromCurrentAccountForDates()
+        datesWithCurrentlyAccountTransaction = transactionsFromCurrentAccountForDates()
         accountCountButton.title = String(ammountTransactionsForCurrentAccount()) + " ₽"
         accountCountButton.isEnabled = false
     }
@@ -31,7 +31,6 @@ class CurrentlyAccountTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        
         return dates.count
     }
     
@@ -40,9 +39,9 @@ class CurrentlyAccountTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let arrayOfTransaction = ammountRows1
-        let dataSection = dates[section]
-        let transactionsArray = arrayOfTransaction[dataSection]!.count
+        let arrayOfTransaction = datesWithCurrentlyAccountTransaction
+        let dateSection = dates[section]
+        let transactionsArray = arrayOfTransaction[dateSection]!.count
         return transactionsArray
     }
     
@@ -53,18 +52,26 @@ class CurrentlyAccountTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! TransactionsTableViewCell
 
-        let transactions = ammountRows1[dates[indexPath.section]]!
+        let transactions = datesWithCurrentlyAccountTransaction[dates[indexPath.section]]!
         let transaction = transactions[indexPath.row]
 
         let accountCount: String
+        var cellColor: UIColor = .black
         if transaction.typeTransaction == "Доход" {
             accountCount = "+ \(transaction.amountTransaction) ₽"
-        } else { accountCount = "- \(transaction.amountTransaction) ₽" }
+            cellColor = .green
+        } else {
+            accountCount = "- \(transaction.amountTransaction) ₽"
+        }
         
         cell.categoryTransactionLable.text = transaction.category
         cell.ammountOperationTransactionLable.text = accountCount
+        cell.ammountOperationTransactionLable.textColor = cellColor
         cell.accountFromTransactionLable.text = transaction.accountTransactionFrom
         cell.balanceTransactionLable.text = "0"
+        if let image = UIImage(named: transaction.category) {
+            cell.imageCategotyTransactionLable.image = image
+        }
         
         return cell
     }
