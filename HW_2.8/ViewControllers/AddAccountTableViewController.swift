@@ -24,8 +24,8 @@ class AddAccountTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        saveButtonOutlet.isEnabled = false
-//        createToolBar()
+        saveButtonOutlet.isEnabled = false
+        createToolBar()
         accountType = .card
         typeLable.text = accountType.rawValue
     }
@@ -47,6 +47,16 @@ class AddAccountTableViewController: UITableViewController {
         dismiss(animated: true, completion: .none)
     }
     
+    // MARK: - Table view data source
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.view.endEditing(true)
+    }
+    
+    // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let viewController = segue.destination as? UINavigationController
         guard let chosenAccountType = viewController?.topViewController
@@ -58,31 +68,30 @@ class AddAccountTableViewController: UITableViewController {
  // MARK: - EXTENSION
 extension AddAccountTableViewController: UITextFieldDelegate {
     func textFieldDidChangeSelection(_ textField: UITextField) {
-        //saveButtonOutlet.isEnabled = true
+        saveButtonOutlet.isEnabled = true
     }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        //textField.endEditing(true)
+        textField.endEditing(true)
         return true
     }
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.view.endEditing(true)
+    
+    private func createToolBar() {
+        let toolBar = UIToolbar()
+        toolBar.sizeToFit()
+        let doneButton = UIBarButtonItem(
+            title: "done",
+            style: .done,
+            target: self,
+            action: #selector(doneClicked)
+        )
+        toolBar.setItems([doneButton], animated: true)
+        startAmmountNewCard.inputAccessoryView = toolBar
     }
-//    private func createToolBar() {
-//        let toolBar = UIToolbar()
-//        toolBar.sizeToFit()
-//        let doneButton = UIBarButtonItem(
-//            title: "done",
-//            style: .done,
-//            target: self,
-//            action: #selector(doneClicked)
-//        )
-//        toolBar.setItems([doneButton], animated: true)
-//        startAmmountNewCard.inputAccessoryView = toolBar
-//    }
-//    @objc func doneClicked() {
-//        view.endEditing(true)
-//        startAmmountNewCard.endEditing(true)
-//    }
+    @objc func doneClicked() {
+        view.endEditing(true)
+        startAmmountNewCard.endEditing(true)
+    }
 }
 
 extension AddAccountTableViewController: IndexDidSelectedRowViewControllerDelegate {

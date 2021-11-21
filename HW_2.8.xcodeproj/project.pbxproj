@@ -25,6 +25,8 @@
 		973B529927442F4A0068F963 /* StartTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 973B529827442F4A0068F963 /* StartTabBarController.swift */; };
 		973B529B274435B30068F963 /* AllAccountTransactionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 973B529A274435B30068F963 /* AllAccountTransactionTableViewController.swift */; };
 		973B529E2744F5A80068F963 /* AllTransaction.storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 973B529C2744F5A70068F963 /* AllTransaction.storyboard.storyboard */; };
+		974AE9E3274A539B003A661A /* CategoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974AE9E2274A539B003A661A /* CategoriesTableViewController.swift */; };
+		974AE9E5274A53FC003A661A /* MoreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974AE9E4274A53FC003A661A /* MoreTableViewController.swift */; };
 		97717B7E27455A4E009674F9 /* TransactionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97717B7D27455A4D009674F9 /* TransactionsTableViewCell.swift */; };
 		97EB33C6274947AC00AD27C1 /* ChosenAccountTypeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97EB33C5274947AC00AD27C1 /* ChosenAccountTypeTableViewController.swift */; };
 /* End PBXBuildFile section */
@@ -50,6 +52,8 @@
 		973B529827442F4A0068F963 /* StartTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartTabBarController.swift; sourceTree = "<group>"; };
 		973B529A274435B30068F963 /* AllAccountTransactionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllAccountTransactionTableViewController.swift; sourceTree = "<group>"; };
 		973B529D2744F5A70068F963 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = HW_2.8/Storyboards/Base.lproj/AllTransaction.storyboard.storyboard; sourceTree = "<group>"; };
+		974AE9E2274A539B003A661A /* CategoriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesTableViewController.swift; sourceTree = "<group>"; };
+		974AE9E4274A53FC003A661A /* MoreTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreTableViewController.swift; sourceTree = "<group>"; };
 		97717B7D27455A4D009674F9 /* TransactionsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsTableViewCell.swift; sourceTree = "<group>"; };
 		97EB33C5274947AC00AD27C1 /* ChosenAccountTypeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChosenAccountTypeTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -119,6 +123,8 @@
 				97717B7D27455A4D009674F9 /* TransactionsTableViewCell.swift */,
 				973B529A274435B30068F963 /* AllAccountTransactionTableViewController.swift */,
 				27B2C98B27453EF300D4F1BA /* AddNewOperacionViewController.swift */,
+				974AE9E4274A53FC003A661A /* MoreTableViewController.swift */,
+				974AE9E2274A539B003A661A /* CategoriesTableViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -236,6 +242,7 @@
 				971616072741A10300B171E0 /* CurrentlyAccountTableViewController.swift in Sources */,
 				274D5233273E8B76004A7259 /* LoginViewController.swift in Sources */,
 				973B529927442F4A0068F963 /* StartTabBarController.swift in Sources */,
+				974AE9E5274A53FC003A661A /* MoreTableViewController.swift in Sources */,
 				971615FE27417BDD00B171E0 /* DataManager.swift in Sources */,
 				9716160527419B5900B171E0 /* AddAccountTableViewController.swift in Sources */,
 				274D522F273E8B76004A7259 /* AppDelegate.swift in Sources */,
@@ -245,6 +252,7 @@
 				973B529B274435B30068F963 /* AllAccountTransactionTableViewController.swift in Sources */,
 				27B2C98C27453EF300D4F1BA /* AddNewOperacionViewController.swift in Sources */,
 				274D5231273E8B76004A7259 /* SceneDelegate.swift in Sources */,
+				974AE9E3274A539B003A661A /* CategoriesTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
