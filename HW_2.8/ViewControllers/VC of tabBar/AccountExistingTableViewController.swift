@@ -11,12 +11,12 @@ import UIKit
 protocol RefreshAccountViewControllerDelegete {
     func addNewAccount(with newValue: AccountList)
 }
-
+  
 class AccountExistingTableViewController: UITableViewController {
     
     @IBOutlet var amountAccountButton: UIBarButtonItem!
     
-    var persons = Person.getPerson()
+    var persons: Person!
     var accountTypes: [AccountTypes] = []
     var accountForTypes: [String: [AccountList]] = [:]
     

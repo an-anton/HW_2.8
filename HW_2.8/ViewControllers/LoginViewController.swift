@@ -17,25 +17,43 @@ class LoginViewController: UIViewController {
         }
     }
      // MARK: - Private properties
-    private let user = ""
-    private let password = ""
+    private var person = Person.getPerson()
+    
     
      // MARK: - @IBActions
     @IBAction func logInButtonAction() {
-        if loginTextField.text != user || passwordTextField.text != password {
+        if loginTextField.text != person.login || passwordTextField.text != person.password {
             showAlert(message: "Enter your username and password")
         }
     }
     
     @IBAction func forgotAction(_ sender: UIButton) {
         sender.tag == 0
-        ? showAlert(message: "Your username is \(user)")
-        : showAlert(message: "Your password is \(password)")
+        ? showAlert(message: "Your username is \(person.login)")
+        : showAlert(message: "Your password is \(person.password)")
     }
     
     @IBAction func unwindExit(for unwindSegue: UIStoryboardSegue) {
         loginTextField.text = ""
         passwordTextField.text = ""
+    }
+        
+     // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let navigationVC = segue.destination as? UINavigationController else { return }
+        guard let tabBarVC = navigationVC.topViewController as? StartTabBarController else { return }
+        
+        guard let viewControllers = tabBarVC.viewControllers else { return }
+        
+        for viewController in viewControllers {
+            if let oneVC = viewController as? AccountExistingTableViewController {
+                oneVC.persons = person
+            } else if let twoVC = viewController as? AllAccountTransactionTableViewController {
+                twoVC.persons = person
+            } else  if let threeVC = viewController as? MoreTableViewController {
+                threeVC.persons = person
+            }
+        }
     }
 }
 

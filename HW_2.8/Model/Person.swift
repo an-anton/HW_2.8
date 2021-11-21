@@ -6,6 +6,8 @@
 //
 
 struct Person {
+    var login = ""
+    var password = ""
     var name: String
     var accountTypes: [AccountTypes]
     var accountСategories: [Categories]

@@ -116,17 +116,25 @@
 			children = (
 				274D5232273E8B76004A7259 /* LoginViewController.swift */,
 				973B529827442F4A0068F963 /* StartTabBarController.swift */,
-				971615FF2741807200B171E0 /* AccountExistingTableViewController.swift */,
+				276A3DBB274A8C41002C91B5 /* VC of tabBar */,
 				9716160427419B5900B171E0 /* AddAccountTableViewController.swift */,
 				97EB33C5274947AC00AD27C1 /* ChosenAccountTypeTableViewController.swift */,
 				971616062741A10300B171E0 /* CurrentlyAccountTableViewController.swift */,
 				97717B7D27455A4D009674F9 /* TransactionsTableViewCell.swift */,
-				973B529A274435B30068F963 /* AllAccountTransactionTableViewController.swift */,
 				27B2C98B27453EF300D4F1BA /* AddNewOperacionViewController.swift */,
-				974AE9E4274A53FC003A661A /* MoreTableViewController.swift */,
 				974AE9E2274A539B003A661A /* CategoriesTableViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		276A3DBB274A8C41002C91B5 /* VC of tabBar */ = {
+			isa = PBXGroup;
+			children = (
+				971615FF2741807200B171E0 /* AccountExistingTableViewController.swift */,
+				973B529A274435B30068F963 /* AllAccountTransactionTableViewController.swift */,
+				974AE9E4274A53FC003A661A /* MoreTableViewController.swift */,
+			);
+			path = "VC of tabBar";
 			sourceTree = "<group>";
 		};
 		971615F52741757F00B171E0 /* Servises */ = {

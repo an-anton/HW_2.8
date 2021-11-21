@@ -10,7 +10,7 @@ import UIKit
 class CurrentlyAccountTableViewController: UITableViewController {
 
     @IBOutlet var accountCountButton: UIBarButtonItem!
-    
+      
     var person: Person!
     var personIndex: AccountList!
     var personTransactions: [Transaction]!

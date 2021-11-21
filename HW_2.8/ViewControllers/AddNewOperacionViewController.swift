@@ -16,7 +16,7 @@ class AddNewOperacionViewController: UIViewController {
     @IBOutlet var categoryTextFiledOutlet: UITextField!
     
     @IBOutlet var accoutTextFieldOutlet: UITextField!
-    
+     
     @IBOutlet var incomeStackOutlet: UIStackView!
     @IBOutlet var incomeSumTF: UITextField!
     @IBOutlet var incomeDateTF: UITextField!
@@ -27,7 +27,7 @@ class AddNewOperacionViewController: UIViewController {
     @IBOutlet var spendStackTF: UIStackView!
  
      // MARK: - Public preference
-    var persons: Person!
+    var person: Person!
     
      // MARK: - Private preverence
     private let datePicker = UIDatePicker()

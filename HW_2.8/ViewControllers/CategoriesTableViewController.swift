@@ -8,7 +8,7 @@
 import UIKit
 
 class CategoriesTableViewController: UITableViewController {
-
+ 
     var categories: [Categories]!
     var sortedCategories: [Categories] = []
     
