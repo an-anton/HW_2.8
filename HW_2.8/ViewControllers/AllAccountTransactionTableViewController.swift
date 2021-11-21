@@ -14,6 +14,7 @@ class AllAccountTransactionTableViewController: UITableViewController {
     var persons: Person!
     var personTransactions: [Transaction]!
     
+    //MARK: - Private properties
     private var ammountArray: [Transaction] = []
     private var ammountRows1: [String: [Transaction]] = [:]
     private var datesArray: [String] = []
@@ -35,7 +36,6 @@ class AllAccountTransactionTableViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
         
         return date.count
@@ -84,7 +84,6 @@ class AllAccountTransactionTableViewController: UITableViewController {
     }
 
      //MARK: - Navigation
- 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let navigationVC = segue.destination as? UINavigationController else { return }
         guard let addNewOperacionVC = navigationVC.topViewController as? AddNewOperacionViewController else { return }
@@ -108,6 +107,7 @@ class AllAccountTransactionTableViewController: UITableViewController {
 
 }
 
+//MARK: - Extension
 extension AllAccountTransactionTableViewController {
     func apdateCountOfHowManyDate() -> [String] {
         var dates1: Set<String> = []
