@@ -11,7 +11,7 @@ import UIKit
 protocol RefreshAccountViewControllerDelegete {
     func addNewAccount(with newValue: AccountList)
 }
-
+ 
 class AccountExistingTableViewController: UITableViewController {
     
     @IBOutlet var amountAccountButton: UIBarButtonItem!

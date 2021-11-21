@@ -17,7 +17,7 @@ class StartTabBarController: UITabBarController {
     }
     
     private func setupViewControllers() {
-      
+          
 //        guard let allAcountTransVC = navigationVC.topViewController as? AllAccountTransactionTableViewController else { return }
 //        allAcountTransVC.persons = person
 //        print("ПРОВЕРКА")

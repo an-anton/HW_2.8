@@ -33,7 +33,7 @@ class AllAccountTransactionTableViewController: UITableViewController {
         ammoutAccountButton.title = String(ammountAllAccount()) + " ₽"
         tableView.reloadData()
     }
-
+ 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {

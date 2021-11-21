@@ -16,7 +16,7 @@ class AddNewOperacionViewController: UIViewController {
     @IBOutlet var categoryTextFiledOutlet: UITextField!
     
     @IBOutlet var accoutTextFieldOutlet: UITextField!
-    
+     
     @IBOutlet var incomeStackOutlet: UIStackView!
     @IBOutlet var incomeSumTF: UITextField!
     @IBOutlet var incomeDateTF: UITextField!

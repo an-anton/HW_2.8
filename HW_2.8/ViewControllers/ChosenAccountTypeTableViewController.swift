@@ -11,7 +11,7 @@ class ChosenAccountTypeTableViewController: UITableViewController {
 
     var accountEnumType: [AccountTypes]!
     var delegete: IndexDidSelectedRowViewControllerDelegate!
-    
+     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
