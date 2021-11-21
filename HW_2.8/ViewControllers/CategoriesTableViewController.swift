@@ -32,7 +32,7 @@ class CategoriesTableViewController: UITableViewController {
         content.text = sortedCategories[indexPath.row].categoriesName
         
         cell.contentConfiguration = content
-        return cell
+        return cell 
     }
 
     /*
