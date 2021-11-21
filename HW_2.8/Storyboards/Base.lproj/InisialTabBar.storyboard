@@ -1,13 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DYo-Rh-iXD">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dyV-TX-zDd">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
-        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="Ful-d7-m6d">
+            <objects>
+                <navigationController id="dyV-TX-zDd" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="vPU-hJ-FCu">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="DYo-Rh-iXD" kind="relationship" relationship="rootViewController" id="JSM-Ey-nZh"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l5j-bM-9Xa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-523" y="351"/>
+        </scene>
         <!--Start Tab Bar Controller-->
         <scene sceneID="k8P-Ix-ijB">
             <objects>
@@ -24,8 +39,8 @@
                     </tabBar>
                     <connections>
                         <segue destination="dg4-t1-hyQ" kind="relationship" relationship="viewControllers" id="vyH-eQ-Jl0"/>
-                        <segue destination="yrV-AK-vGO" kind="relationship" relationship="viewControllers" id="s6T-mp-Sts"/>
-                        <segue destination="HSP-Ak-Ult" kind="relationship" relationship="viewControllers" id="lor-3f-e2g"/>
+                        <segue destination="aaj-6Y-nAG" kind="relationship" relationship="viewControllers" id="5ou-W7-ROo"/>
+                        <segue destination="88I-zn-cCR" kind="relationship" relationship="viewControllers" id="ijE-b7-shN"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aTO-pk-geS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -41,9 +56,9 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KK6-s4-1K3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="84" y="817"/>
+            <point key="canvasLocation" x="-81" y="832"/>
         </scene>
-        <!--All Account Transaction Table View Controller-->
+        <!--Item-->
         <scene sceneID="GVD-0d-hvy">
             <objects>
                 <tableViewController id="88I-zn-cCR" customClass="AllAccountTransactionTableViewController" customModule="HW_2_8" customModuleProvider="target" sceneMemberID="viewController">
@@ -82,6 +97,7 @@
                             <outlet property="delegate" destination="88I-zn-cCR" id="NEc-hu-yHb"/>
                         </connections>
                     </tableView>
+                    <tabBarItem key="tabBarItem" title="Item" id="jnj-0B-vxU"/>
                     <navigationItem key="navigationItem" id="HGO-aL-tLy">
                         <barButtonItem key="leftBarButtonItem" title="Item" id="5lN-8y-YVP">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -99,28 +115,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zZk-5n-Hox" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1464" y="1136"/>
-        </scene>
-        <!--Операции-->
-        <scene sceneID="DR2-8J-vFY">
-            <objects>
-                <navigationController id="yrV-AK-vGO" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Операции" id="kQr-gH-JCU">
-                        <imageReference key="image" image="building.columns" catalog="system" renderingMode="original"/>
-                        <color key="badgeColor" red="0.93082314730000004" green="0.46152037379999999" blue="0.28621619939999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <imageReference key="selectedImage" image="building.columns.fill" catalog="system" renderingMode="original"/>
-                    </tabBarItem>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="cft-Up-wij">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="88I-zn-cCR" kind="relationship" relationship="rootViewController" id="6MW-MM-1wO"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ck8-tJ-8fx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="726" y="1137"/>
+            <point key="canvasLocation" x="-81" y="1471"/>
         </scene>
         <!--AddNewOperacion-->
         <scene sceneID="tJp-Tg-mdJ">
@@ -130,9 +125,9 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zGL-mI-09K" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2050" y="1136"/>
+            <point key="canvasLocation" x="611" y="1546"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Item-->
         <scene sceneID="A4m-wv-fWu">
             <objects>
                 <tableViewController id="aaj-6Y-nAG" sceneMemberID="viewController">
@@ -200,39 +195,16 @@
                             <outlet property="delegate" destination="aaj-6Y-nAG" id="RY7-Ds-Vvy"/>
                         </connections>
                     </tableView>
+                    <tabBarItem key="tabBarItem" title="Item" id="aRf-va-9Bb"/>
                     <navigationItem key="navigationItem" id="wFn-Mk-Qap"/>
                 </tableViewController>
                 <exit id="JR4-FR-uMU" userLabel="Exit" sceneMemberID="exit"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PIC-La-z1Z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2366.666666666667" y="350.89285714285711"/>
-        </scene>
-        <!--Ещё-->
-        <scene sceneID="z4b-3V-Cbp">
-            <objects>
-                <navigationController id="HSP-Ak-Ult" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Ещё" id="59e-vu-JtM">
-                        <imageReference key="image" image="list.bullet" catalog="system" symbolScale="default" renderingMode="original"/>
-                        <color key="badgeColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <imageReference key="selectedImage" image="list.bullet" catalog="system" renderingMode="original"/>
-                    </tabBarItem>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mOY-Zx-iaU">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="aaj-6Y-nAG" kind="relationship" relationship="rootViewController" id="iYY-OQ-MEq"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ml2-6a-lm1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1388" y="351"/>
+            <point key="canvasLocation" x="691" y="1123"/>
         </scene>
     </scenes>
     <resources>
-        <image name="building.columns" catalog="system" width="128" height="113"/>
-        <image name="building.columns.fill" catalog="system" width="128" height="113"/>
-        <image name="list.bullet" catalog="system" width="128" height="88"/>
         <image name="rectangle.portrait.and.arrow.right" catalog="system" width="128" height="108"/>
         <image name="tag" catalog="system" width="128" height="119"/>
         <systemColor name="systemBackgroundColor">

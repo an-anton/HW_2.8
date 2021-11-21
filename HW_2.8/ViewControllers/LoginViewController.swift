@@ -40,8 +40,20 @@ class LoginViewController: UIViewController {
     
      // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let tabBarVC = segue.destination as? StartTabBarController else { return }
-        tabBarVC.person = person
+        guard let navigationVC = segue.destination as? UINavigationController else { return }
+        guard let tabBarVC = navigationVC.topViewController as? StartTabBarController else { return }
+        
+        guard let viewControllers = tabBarVC.viewControllers else { return }
+        
+        for viewController in viewControllers {
+            if let oneVC = viewController as? AccountExistingTableViewController {
+                oneVC.persons = person
+            } else if let twoVC = viewController as? AllAccountTransactionTableViewController {
+                twoVC.persons = person
+            } else  if let threeVC = viewController as? AllAccountTransactionTableViewController {
+                threeVC.persons = person
+            }
+        }
     }
 }
 
