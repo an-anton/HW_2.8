@@ -21,7 +21,7 @@ class AllAccountTransactionTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         date = apdateCountOfHowManyDate()
-        ammountRows1 = apdateArray()
+        ammountRows1 = chosenAllTransactionForDates()
         ammoutAccountButton.isEnabled = false
     }
     
@@ -127,7 +127,7 @@ extension AllAccountTransactionTableViewController {
         return sortedDays
     }
     
-    func apdateArray() -> [String: [Transaction]] {
+    func chosenAllTransactionForDates() -> [String: [Transaction]] {
         var ammountRows1: [String: [Transaction]] = [:]
         var dates: Set<String> = []
         
@@ -151,18 +151,18 @@ extension AllAccountTransactionTableViewController {
         return ammountRows1
     }
     
-     func ammountAllAccount() -> Int {
-        var ammount = 0
-        for accountList in persons.accountList {
-            ammount = ammount + accountList.accountStartCount
-        }
-        for transaction in persons.transaction {
-            if transaction.typeTransaction == "Доход" {
-                ammount = ammount + transaction.amountTransaction
-            } else { ammount = ammount - transaction.amountTransaction }
-        }
-        return ammount
+    func ammountAllAccount() -> Int {
+    var ammount = 0
+    for accountList in persons.accountList {
+        ammount = ammount + accountList.accountStartCount
     }
+    for transaction in persons.transaction {
+        if transaction.typeTransaction == "Доход" {
+            ammount = ammount + transaction.amountTransaction
+        } else { ammount = ammount - transaction.amountTransaction }
+    }
+    return ammount
+}
     
     func ammountAllTransaction(for person: AccountList) -> Int {
         var summAllTransaction = 0

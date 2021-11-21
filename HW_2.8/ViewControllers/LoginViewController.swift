@@ -34,6 +34,8 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func unwind(for unwindSegue: UIStoryboardSegue) {
+        loginTextField.text = ""
+        passwordTextField.text = ""
     }
 }
 
