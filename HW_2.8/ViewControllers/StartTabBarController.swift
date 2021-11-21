@@ -8,6 +8,8 @@
 import UIKit
 
 class StartTabBarController: UITabBarController {
+    
+    var person: Person!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -15,6 +17,17 @@ class StartTabBarController: UITabBarController {
     }
     
     private func setupViewControllers() {
+        
+        guard let navigationVCfirst = viewControllers?.first as? UINavigationController else { return }
+        guard let accountExistingTableVC = navigationVCfirst.topViewController as? AccountExistingTableViewController else { return }
+        accountExistingTableVC.persons = person
+        
+        guard let navigationVC = viewControllers?.last as? UINavigationController else { return }
+        guard let allAcountTransVC = navigationVC.topViewController as? AllAccountTransactionTableViewController else { return }
+        allAcountTransVC.persons = person
+        
+//        guard let navigationVCthree = viewControllers?.last as? UINavigationController else { return }
+        
         
 //        for viewController in viewControllers! {
 //            let persons = Person.getPerson()

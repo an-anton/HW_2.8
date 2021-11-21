@@ -20,6 +20,9 @@ class LoginViewController: UIViewController {
     private let user = ""
     private let password = ""
     
+     // MARK: - Public properties
+    var person = Person.getPerson()
+    
      // MARK: - @IBActions
     @IBAction func logInButtonAction() {
         if loginTextField.text != user || passwordTextField.text != password {
@@ -36,6 +39,12 @@ class LoginViewController: UIViewController {
     @IBAction func unwind(for unwindSegue: UIStoryboardSegue) {
         loginTextField.text = ""
         passwordTextField.text = ""
+    }
+    
+     // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let tabBarVC = segue.destination as? StartTabBarController else { return }
+        tabBarVC.person = person
     }
 }
 
