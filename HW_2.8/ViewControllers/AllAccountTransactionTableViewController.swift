@@ -52,61 +52,37 @@ class AllAccountTransactionTableViewController: UITableViewController {
         let transactionsArray = arrayOfTransaction[dataSection]!.count
         return transactionsArray
     }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 61
+    }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TransactionsTableViewCell
 
         let transactions = ammountRows1[date[indexPath.section]]!
         let transaction = transactions[indexPath.row]
-        var content = cell.defaultContentConfiguration()
         
-        content.text = transaction.category
+        cell.categoryTransactionLable.text = transaction.category
+        for transactionList in persons.accountList {
+            if transactionList.accountName == transaction.accountTransactionFrom {
+                cell.balanceTransactionLable.text = String(transaction.accountBalance + transactionList.accountStartCount) + " ₽"
+            }
+        }
+        cell.accountFromTransactionLable.text = transaction.accountTransactionFrom
         let accountCount: String
         if transaction.typeTransaction == "Доход" {
             accountCount = "+ \(transaction.amountTransaction) ₽"
         } else { accountCount = "- \(transaction.amountTransaction) ₽" }
-        content.secondaryText = accountCount
-        cell.contentConfiguration = content
+        cell.ammountOperationTransactionLable.text = accountCount
 
+        if let image = UIImage(named: transaction.category) {
+            cell.imageCategotyTransactionLable.image = image
+        }
+        
         return cell
     }
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    
      //MARK: - Navigation
  
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -122,7 +98,7 @@ class AllAccountTransactionTableViewController: UITableViewController {
                                        category: addNewOperacionVC.categoryTextFiledOutlet.text ?? "ERROR",
                                        typeTransaction: "????",
                                        accountTransactionFrom: "????",
-                                       accountTransactionTo: "????")
+                                       accountBalance: 0)
         persons.transaction.insert(newOperacion, at: 0)
         
 //        let newIndexPath = IndexPath(row: persons.transaction.count, section: 0)

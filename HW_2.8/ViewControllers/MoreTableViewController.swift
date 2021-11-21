@@ -17,14 +17,6 @@ class MoreTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        persons.transaction.append(Transaction(
-            dateTransaction: "22.11.2021",
-            amountTransaction: 1000,
-            category: "Транспорт",
-            typeTransaction: "Расход",
-            accountTransactionFrom: "Карта Тинькофф",
-            accountTransactionTo: ""))
     }
 
     // MARK: - Navigation

@@ -43,7 +43,7 @@ class CurrentlyAccountTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 62
+        return 61
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -65,7 +65,7 @@ class CurrentlyAccountTableViewController: UITableViewController {
         cell.ammountOperationTransactionLable.text = accountCount
         cell.ammountOperationTransactionLable.textColor = cellColor
         cell.accountFromTransactionLable.text = transaction.accountTransactionFrom
-        cell.balanceTransactionLable.text = "0"
+        cell.balanceTransactionLable.text = String(transaction.accountBalance + personIndex.accountStartCount) + " ₽"
         if let image = UIImage(named: transaction.category) {
             cell.imageCategotyTransactionLable.image = image
         }

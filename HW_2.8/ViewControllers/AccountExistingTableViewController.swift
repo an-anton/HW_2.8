@@ -119,7 +119,7 @@ extension AccountExistingTableViewController {
             if transaction.accountTransactionFrom == person.accountName {
                 if transaction.typeTransaction == "Доход" {
                     summAllTransaction = summAllTransaction + transaction.amountTransaction
-                } else {summAllTransaction = summAllTransaction - transaction.amountTransaction}
+                } else { summAllTransaction = summAllTransaction - transaction.amountTransaction }
             }
         }
         return summAllTransaction

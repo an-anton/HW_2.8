@@ -25,7 +25,7 @@ struct Transaction {
     let category: String // категория транзакции
     let typeTransaction: String // тип (доход, расход, перевод)
     let accountTransactionFrom: String // с какого счёта было списание
-    let accountTransactionTo: String // если тип "перевод", то на какой счёт был перевод
+    let accountBalance: Int // если тип "перевод", то на какой счёт был перевод
 }
 
 enum AccountTypes: String {
@@ -106,7 +106,7 @@ extension Person {
                 AccountList(
                     accountName: "Карта Тинькофф",
                     accountType: .card,
-                    accountStartCount: 1000
+                    accountStartCount: 10000
                 ),
                 AccountList(
                     accountName: "Карта ВТБ",
@@ -127,87 +127,99 @@ extension Person {
                transaction: [
                 Transaction(
                     dateTransaction: "21.11.2021",
-                    amountTransaction: 1000, category: "Продукты",
+                    amountTransaction: 1000,
+                    category: "Продукты",
                     typeTransaction: "Расход",
                     accountTransactionFrom: "Карта Тинькофф",
-                    accountTransactionTo: ""
+                    accountBalance: 5000
                 ),
                 Transaction(
                     dateTransaction: "20.11.2021",
-                    amountTransaction: 1000, category: "Продукты",
+                    amountTransaction: 1000,
+                    category: "Продукты",
                     typeTransaction: "Расход",
                     accountTransactionFrom: "Карта Тинькофф",
-                    accountTransactionTo: ""
+                    accountBalance: 6000
                 ),
                 Transaction(
                     dateTransaction: "17.11.2021",
-                    amountTransaction: 5000, category: "Продукты",
+                    amountTransaction: 5000,
+                    category: "Продукты",
                     typeTransaction: "Расход",
                     accountTransactionFrom: "Карта Тинькофф",
-                    accountTransactionTo: ""
+                    accountBalance: 7000
                 ),
                 Transaction(
                     dateTransaction: "17.11.2021",
-                    amountTransaction: 2000, category: "Дом",
+                    amountTransaction: 2000,
+                    category: "Дом",
                     typeTransaction: "Расход",
                     accountTransactionFrom: "Карта Тинькофф",
-                    accountTransactionTo: ""
+                    accountBalance: 12000
                 ),
                 Transaction(
                     dateTransaction: "16.11.2021",
-                    amountTransaction: 10000, category: "Кешбек",
+                    amountTransaction: 10000,
+                    category: "Кешбек",
                     typeTransaction: "Доход",
                     accountTransactionFrom: "Карта Тинькофф",
-                    accountTransactionTo: ""
+                    accountBalance: 14000
                 ),
                 Transaction(
                     dateTransaction: "15.11.2021",
-                    amountTransaction: 5000, category: "Зарплата",
+                    amountTransaction: 5000,
+                    category: "Зарплата",
                     typeTransaction: "Доход",
                     accountTransactionFrom: "Карта Тинькофф",
-                    accountTransactionTo: ""
+                    accountBalance: 4000
                 ),
                 Transaction(
                     dateTransaction: "10.11.2021",
-                    amountTransaction: 1000, category: "Автомобиль",
+                    amountTransaction: 1000,
+                    category: "Автомобиль",
                     typeTransaction: "Расход",
                     accountTransactionFrom: "Карта Тинькофф",
-                    accountTransactionTo: ""
+                    accountBalance: -1000
                 ),
                 Transaction(
                     dateTransaction: "07.11.2021",
-                    amountTransaction: 2000, category: "Одежда",
+                    amountTransaction: 2000,
+                    category: "Одежда",
                     typeTransaction: "Расход",
                     accountTransactionFrom: "Карта Тинькофф",
-                    accountTransactionTo: ""
+                    accountBalance: 0
                 ),
                 Transaction(
                     dateTransaction: "01.11.2021",
-                    amountTransaction: 5000, category: "Автомобиль",
+                    amountTransaction: 5000,
+                    category: "Автомобиль",
                     typeTransaction: "Расход",
                     accountTransactionFrom: "Карта Тинькофф",
-                    accountTransactionTo: ""
+                    accountBalance: -5000
                 ),
                 Transaction(
                     dateTransaction: "01.11.2021",
-                    amountTransaction: 3000, category: "Продукты",
+                    amountTransaction: 3000,
+                    category: "Продукты",
                     typeTransaction: "Расход",
                     accountTransactionFrom: "Карта Тинькофф",
-                    accountTransactionTo: ""
+                    accountBalance: -3000
                 ),
                 Transaction(
                     dateTransaction: "05.11.2021",
-                    amountTransaction: 10000, category: "Зарплата",
+                    amountTransaction: 10000,
+                    category: "Зарплата",
                     typeTransaction: "Доход",
                     accountTransactionFrom: "Карта Тинькофф",
-                    accountTransactionTo: ""
+                    accountBalance: 2000
                 ),
                 Transaction(
                     dateTransaction: "05.11.2021",
-                    amountTransaction: 10000, category: "Зарплата",
+                    amountTransaction: 10000,
+                    category: "Зарплата",
                     typeTransaction: "Доход",
                     accountTransactionFrom: "Карта ВТБ",
-                    accountTransactionTo: ""
+                    accountBalance: 10000
                 )
                ]
         )
