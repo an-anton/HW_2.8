@@ -10,7 +10,8 @@ import UIKit
 class AllAccountTransactionTableViewController: UITableViewController {
     @IBOutlet var ammoutAccountButton: UIBarButtonItem!
     
-    var persons = Person.getPerson()
+    //var persons = Person.getPerson()
+    var persons: Person!
     var personTransactions: [Transaction]!
     
     private var ammountArray: [Transaction] = []

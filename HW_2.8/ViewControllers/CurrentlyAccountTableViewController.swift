@@ -27,7 +27,6 @@ class CurrentlyAccountTableViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
         return datesTransaction.count
     }
@@ -88,7 +87,7 @@ class CurrentlyAccountTableViewController: UITableViewController {
 // MARK: - Extension
 
 extension CurrentlyAccountTableViewController {
-    func ChosenDatesTransactionFromCurrentlyAccount() -> [String] {
+    private func ChosenDatesTransactionFromCurrentlyAccount() -> [String] {
         var datesTransaction: Set<String> = []
         
         for personTransaction in personTransactions {
@@ -99,7 +98,7 @@ extension CurrentlyAccountTableViewController {
         return sortedDaysTransaction
     }
 
-    func chosenTransactionsFromCurrentlyAccountForDates() -> [String: [Transaction]] {
+    private func chosenTransactionsFromCurrentlyAccountForDates() -> [String: [Transaction]] {
         var transactionsForDates: [String: [Transaction]] = [:]
 
         for currentlyDate in datesTransaction {
@@ -118,7 +117,7 @@ extension CurrentlyAccountTableViewController {
         return transactionsForDates
     }
     
-    func ammountTransactionsForCurrentAccount() -> Int {
+    private func ammountTransactionsForCurrentAccount() -> Int {
         var ammount = 0
         
         for personAccountList in person.accountList {

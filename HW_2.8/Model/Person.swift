@@ -94,10 +94,6 @@ extension Person {
                 categoriesImageName: "Кешбек"
                ),
                Categories(
-                categoriesName: "Аванс",
-                categoriesImageName: "Аванс"
-               ),
-               Categories(
                 categoriesName: "Зарплата",
                 categoriesImageName: "Зарплата"
                ),
@@ -166,7 +162,7 @@ extension Person {
                 ),
                 Transaction(
                     dateTransaction: "15.11.2021",
-                    amountTransaction: 5000, category: "Аванс",
+                    amountTransaction: 5000, category: "Зарплата",
                     typeTransaction: "Доход",
                     accountTransactionFrom: "Карта Тинькофф",
                     accountTransactionTo: ""

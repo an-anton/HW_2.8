@@ -20,7 +20,7 @@ class AddAccountTableViewController: UITableViewController {
     
     var person: Person!
     var delegate: RefreshAccountViewControllerDelegete!
-    var accountType: AccountTypes!
+    private var accountType: AccountTypes!
     
     override func viewDidLoad() {
         super.viewDidLoad()

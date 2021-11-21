@@ -139,14 +139,14 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cell" id="WW6-cV-OLS">
-                                        <rect key="frame" x="20" y="105.5" width="374" height="43.5"/>
+                                        <rect key="frame" x="20" y="105.5" width="374" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WW6-cV-OLS" id="4BK-HD-l8G">
-                                            <rect key="frame" x="0.0" y="0.0" width="344.5" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="344.5" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Карта" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qpv-vY-z9M">
-                                                    <rect key="frame" x="20" y="11.5" width="46.5" height="21"/>
+                                                    <rect key="frame" x="20" y="11.5" width="46.5" height="21.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -227,7 +227,6 @@
         <!--Navigation Controller-->
         <scene sceneID="5Jy-uF-LLr">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xyX-0y-ga7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController id="qnn-x5-dNx" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="Pr8-YK-ItH"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="FxO-Yf-ySK">
@@ -238,6 +237,7 @@
                         <segue destination="s7H-Sm-1II" kind="relationship" relationship="rootViewController" id="Z4R-Dv-6cQ"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xyX-0y-ga7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5672" y="351"/>
         </scene>

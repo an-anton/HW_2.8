@@ -8,6 +8,7 @@
 import UIKit
 
 class LoginViewController: UIViewController {
+    
      // MARK: - @IBOutlets
     @IBOutlet var loginTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
@@ -16,6 +17,9 @@ class LoginViewController: UIViewController {
             logInButton.layer.cornerRadius = logInButton.frame.height / 4
         }
     }
+    
+    private var persons = Person.getPerson()
+    
      // MARK: - Private properties
     private let user = ""
     private let password = ""
@@ -36,7 +40,16 @@ class LoginViewController: UIViewController {
     @IBAction func unwindExit(for unwindSegue: UIStoryboardSegue) {
         loginTextField.text = ""
         passwordTextField.text = ""
+        
+        guard let moreVC = unwindSegue.source as? MoreTableViewController else { return }
+        persons = moreVC.persons
     }
+    
+    // MARK: - Navigation
+   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+       guard let tabBarVC = segue.destination as? StartTabBarController else { return }
+       tabBarVC.persons = persons
+   }
 }
 
  // MARK: - UIAlertController
@@ -48,6 +61,7 @@ extension LoginViewController {
         present(alert, animated: true)
     }
 }
+
  // MARK: - UITextFieldDelegate
 extension LoginViewController: UITextFieldDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -66,3 +80,4 @@ extension LoginViewController: UITextFieldDelegate {
         return true
     }
 }
+

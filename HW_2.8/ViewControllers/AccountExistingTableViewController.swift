@@ -16,10 +16,11 @@ class AccountExistingTableViewController: UITableViewController {
     
     @IBOutlet var amountAccountButton: UIBarButtonItem!
     
-    var persons = Person.getPerson()
-    var accountTypes: [AccountTypes] = []
-    var accountForTypes: [String: [AccountList]] = [:]
+    var persons: Person!
+    private var accountTypes: [AccountTypes] = []
+    private var accountForTypes: [String: [AccountList]] = [:]
     
+    // MARK: - Ovvarride
     override func viewDidLoad() {
         super.viewDidLoad()
         amountAccountButton.isEnabled = false
@@ -93,14 +94,13 @@ class AccountExistingTableViewController: UITableViewController {
             
             currentlyTVC.person = persons
             currentlyTVC.personTransactions = personAccountFroms
-//            let personFromIndex = persons.accountList[indexPath.row]
             currentlyTVC.personIndex = currentAccount
         }
     }
 }
     // MARK: - Extension
 extension AccountExistingTableViewController {
-    func ammountAllAccount() -> Int {
+    private func ammountAllAccount() -> Int {
         var ammount = 0
         for accountList in persons.accountList {
             ammount = ammount + accountList.accountStartCount
@@ -113,7 +113,7 @@ extension AccountExistingTableViewController {
         return ammount
     }
     
-    func ammountAllTransaction(for person: AccountList) -> Int {
+    private func ammountAllTransaction(for person: AccountList) -> Int {
         var summAllTransaction = 0
         for transaction in persons.transaction {
             if transaction.accountTransactionFrom == person.accountName {
@@ -125,12 +125,12 @@ extension AccountExistingTableViewController {
         return summAllTransaction
     }
     
-    func coutingNumberOfTypes() -> [AccountTypes] {
+    private func coutingNumberOfTypes() -> [AccountTypes] {
         let accountTypes: [AccountTypes] = [.cash, .card, .bankBill]
         return accountTypes
     }
     
-    func choosenTransactionsFromCurrentAccount(with currentAccount: AccountList) -> [Transaction] {
+    private func choosenTransactionsFromCurrentAccount(with currentAccount: AccountList) -> [Transaction] {
         var personAccountFroms: [Transaction] = []
         for person in persons.transaction {
             if person.accountTransactionFrom == currentAccount.accountName {
@@ -140,7 +140,7 @@ extension AccountExistingTableViewController {
         return personAccountFroms
     }
 
-    func chosenAccountForTypes() -> [String: [AccountList]] {
+    private func chosenAccountForTypes() -> [String: [AccountList]] {
         var accountsForTypes: [String: [AccountList]] = [:]
         for currentlyType in persons.accountTypes {
             var accounts: [AccountList] = []
