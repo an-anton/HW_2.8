@@ -10,7 +10,7 @@ import UIKit
 protocol CategoriesTableViewDalegete {
     func addNewCategory(with newValue: Categories)
 }
- 
+  
 class MoreTableViewController: UITableViewController {
 
     var persons: Person!

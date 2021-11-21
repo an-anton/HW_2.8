@@ -10,7 +10,7 @@ import UIKit
 protocol IndexDidSelectedRowViewControllerDelegate {
     func updateType(with newValue: AccountTypes)
 }
- 
+  
 class AddAccountTableViewController: UITableViewController {
 
     @IBOutlet var nameNewCard: UITextField!
