@@ -86,7 +86,6 @@ class AccountExistingTableViewController: UITableViewController {
             guard let currentlyTVC = navigationVC.topViewController
                     as? CurrentlyAccountTableViewController else { return }
             guard let indexPath = tableView.indexPathForSelectedRow else { return }
-            print(indexPath)
             let accountsFromCurrentType = accountForTypes[accountTypes[indexPath.section].rawValue]!
             let currentAccount = accountsFromCurrentType[indexPath.row]
             
@@ -127,7 +126,7 @@ extension AccountExistingTableViewController {
     }
     
     func coutingNumberOfTypes() -> [AccountTypes] {
-        let accountTypes: [AccountTypes] = [.cash, .card]
+        let accountTypes: [AccountTypes] = [.cash, .card, .bankBill]
         return accountTypes
     }
     
@@ -156,7 +155,6 @@ extension AccountExistingTableViewController {
                 }
             }
         }
-        print(accountsForTypes)
         return accountsForTypes
     }
 }
