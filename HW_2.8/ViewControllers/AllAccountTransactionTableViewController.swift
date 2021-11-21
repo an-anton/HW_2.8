@@ -24,6 +24,8 @@ class AllAccountTransactionTableViewController: UITableViewController {
         ammountRows1 = chosenAllTransactionForDates()
         ammoutAccountButton.isEnabled = false
     }
+    @IBAction func addButton(_ sender: UIBarButtonItem) {
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -103,15 +105,29 @@ class AllAccountTransactionTableViewController: UITableViewController {
     }
     */
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
+     //MARK: - Navigation
+ 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        guard let navigationVC = segue.destination as? UINavigationController else { return }
+        guard let addNewOperacionVC = navigationVC.topViewController as? AddNewOperacionViewController else { return }
+        addNewOperacionVC.persons = persons
     }
-    */
+    
+    @IBAction func unwind(for segue: UIStoryboardSegue) {
+        let addNewOperacionVC = segue.source as! AddNewOperacionViewController
+        let newOperacion = Transaction(dateTransaction: addNewOperacionVC.dateTextFieldOutlet.text ?? "ERROR",
+                                       amountTransaction: Int(addNewOperacionVC.sumTextFieldOutlet.text ?? "ERROR") ?? 0,
+                                       category: addNewOperacionVC.categoryTextFiledOutlet.text ?? "ERROR",
+                                       typeTransaction: "????",
+                                       accountTransactionFrom: "????",
+                                       accountTransactionTo: "????")
+        persons.transaction.insert(newOperacion, at: 0)
+        
+//        let newIndexPath = IndexPath(row: persons.transaction.count, section: 0)
+//        tableView.insertRows(at: [newIndexPath], with: .fade)
+//        tableView.reloadData()
+    }
 
 }
 
