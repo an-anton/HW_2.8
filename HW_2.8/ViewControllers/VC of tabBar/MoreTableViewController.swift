@@ -13,7 +13,7 @@ protocol CategoriesTableViewDalegete {
 
 class MoreTableViewController: UITableViewController {
 
-    var persons = Person.getPerson()
+    var persons: Person!
     
     override func viewDidLoad() {
         super.viewDidLoad()

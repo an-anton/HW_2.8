@@ -50,7 +50,7 @@ class LoginViewController: UIViewController {
                 oneVC.persons = person
             } else if let twoVC = viewController as? AllAccountTransactionTableViewController {
                 twoVC.persons = person
-            } else  if let threeVC = viewController as? AllAccountTransactionTableViewController {
+            } else  if let threeVC = viewController as? MoreTableViewController {
                 threeVC.persons = person
             }
         }
