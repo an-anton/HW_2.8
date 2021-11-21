@@ -26,6 +26,8 @@ class AddAccountTableViewController: UITableViewController {
         super.viewDidLoad()
 //        saveButtonOutlet.isEnabled = false
 //        createToolBar()
+        accountType = .card
+        typeLable.text = accountType.rawValue
     }
     
     // MARK: - IBActions
@@ -56,32 +58,31 @@ class AddAccountTableViewController: UITableViewController {
  // MARK: - EXTENSION
 extension AddAccountTableViewController: UITextFieldDelegate {
     func textFieldDidChangeSelection(_ textField: UITextField) {
-        saveButtonOutlet.isEnabled = true
+        //saveButtonOutlet.isEnabled = true
     }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.endEditing(true)
+        //textField.endEditing(true)
         return true
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.view.endEditing(true)
-        nameNewCard.endEditing(true)
     }
-    private func createToolBar() {
-        let toolBar = UIToolbar()
-        toolBar.sizeToFit()
-        let doneButton = UIBarButtonItem(
-            title: "done",
-            style: .done,
-            target: self,
-            action: #selector(doneClicked)
-        )
-        toolBar.setItems([doneButton], animated: true)
-        startAmmountNewCard.inputAccessoryView = toolBar
-    }
-    @objc func doneClicked() {
-        view.endEditing(true)
-        startAmmountNewCard.endEditing(true)
-    }
+//    private func createToolBar() {
+//        let toolBar = UIToolbar()
+//        toolBar.sizeToFit()
+//        let doneButton = UIBarButtonItem(
+//            title: "done",
+//            style: .done,
+//            target: self,
+//            action: #selector(doneClicked)
+//        )
+//        toolBar.setItems([doneButton], animated: true)
+//        startAmmountNewCard.inputAccessoryView = toolBar
+//    }
+//    @objc func doneClicked() {
+//        view.endEditing(true)
+//        startAmmountNewCard.endEditing(true)
+//    }
 }
 
 extension AddAccountTableViewController: IndexDidSelectedRowViewControllerDelegate {

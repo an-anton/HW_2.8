@@ -7,6 +7,7 @@
 
 import UIKit
 
+// MARK: - Protocol
 protocol RefreshAccountViewControllerDelegete {
     func addNewAccount(with newValue: AccountList)
 }
@@ -22,17 +23,17 @@ class AccountExistingTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         amountAccountButton.isEnabled = false
-        accountTypes = coutingNumberOfTypes()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        accountTypes = coutingNumberOfTypes()
         amountAccountButton.title = String(ammountAllAccount()) + " ₽"
         accountForTypes = chosenAccountForTypes()
+        tableView.reloadData()
     }
 
     // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
         accountTypes.count
     }
@@ -63,6 +64,10 @@ class AccountExistingTableViewController: UITableViewController {
         cell.contentConfiguration = content
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     // MARK: - Navigation
@@ -151,6 +156,7 @@ extension AccountExistingTableViewController {
                 }
             }
         }
+        print(accountsForTypes)
         return accountsForTypes
     }
 }
@@ -158,6 +164,9 @@ extension AccountExistingTableViewController {
 extension AccountExistingTableViewController: RefreshAccountViewControllerDelegete {
     func addNewAccount(with newValue: AccountList) {
         persons.accountList.append(newValue)
+        accountForTypes = chosenAccountForTypes()
+        accountTypes = coutingNumberOfTypes()
+        amountAccountButton.title = String(ammountAllAccount()) + " ₽"
         tableView.reloadData()
     }
 }
