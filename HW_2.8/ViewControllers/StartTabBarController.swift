@@ -25,6 +25,7 @@ class StartTabBarController: UITabBarController {
         guard let navigationVC = viewControllers?.last as? UINavigationController else { return }
         guard let allAcountTransVC = navigationVC.topViewController as? AllAccountTransactionTableViewController else { return }
         allAcountTransVC.persons = person
+        print(person.transaction.count)
         
 //        guard let navigationVCthree = viewControllers?.last as? UINavigationController else { return }
         

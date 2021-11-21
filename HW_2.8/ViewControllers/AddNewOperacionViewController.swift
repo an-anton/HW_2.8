@@ -27,7 +27,7 @@ class AddNewOperacionViewController: UIViewController {
     @IBOutlet var spendStackTF: UIStackView!
  
      // MARK: - Public preference
-    var persons: Person!
+    var person: Person!
     
      // MARK: - Private preverence
     private let datePicker = UIDatePicker()

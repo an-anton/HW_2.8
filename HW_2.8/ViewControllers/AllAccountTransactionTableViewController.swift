@@ -10,8 +10,9 @@ import UIKit
 class AllAccountTransactionTableViewController: UITableViewController {
     @IBOutlet var ammoutAccountButton: UIBarButtonItem!
     
-    var persons = Person.getPerson()
-    var personTransactions: [Transaction]!
+     // MARK: - Public properties
+    var persons: Person!
+//    var personTransactions: [Transaction]!
     
     private var ammountArray: [Transaction] = []
     private var ammountRows1: [String: [Transaction]] = [:]
@@ -70,40 +71,6 @@ class AllAccountTransactionTableViewController: UITableViewController {
         return cell
     }
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
 
     
      //MARK: - Navigation
@@ -111,11 +78,12 @@ class AllAccountTransactionTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let navigationVC = segue.destination as? UINavigationController else { return }
         guard let addNewOperacionVC = navigationVC.topViewController as? AddNewOperacionViewController else { return }
-        addNewOperacionVC.persons = persons
+        addNewOperacionVC.person = persons
     }
     
     @IBAction func unwind(for segue: UIStoryboardSegue) {
-        let addNewOperacionVC = segue.source as! AddNewOperacionViewController
+        guard let addNewOperacionVC = segue.source as? AddNewOperacionViewController else { return }
+        
         let newOperacion = Transaction(dateTransaction: addNewOperacionVC.dateTextFieldOutlet.text ?? "ERROR",
                                        amountTransaction: Int(addNewOperacionVC.sumTextFieldOutlet.text ?? "ERROR") ?? 0,
                                        category: addNewOperacionVC.categoryTextFiledOutlet.text ?? "ERROR",
@@ -130,12 +98,13 @@ class AllAccountTransactionTableViewController: UITableViewController {
     }
 
 }
-
+ // MARK: - EXTENSION
 extension AllAccountTransactionTableViewController {
     func apdateCountOfHowManyDate() -> [String] {
+        let array = persons.transaction
         var dates1: Set<String> = []
         
-        for transaction in persons.transaction {
+        for transaction in array {
             dates1.insert(transaction.dateTransaction)
         }
         let datesArray1 = Array(dates1)

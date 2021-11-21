@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,7 +17,10 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2v2-0M-rXw">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.93082314730000004" green="0.46152037379999999" blue="0.28621619939999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="tintColor" systemColor="tintColor"/>
+                        <color key="barTintColor" red="0.93082314730000004" green="0.46152037379999999" blue="0.28621619939999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="selectedImageTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
                         <segue destination="dg4-t1-hyQ" kind="relationship" relationship="viewControllers" id="vyH-eQ-Jl0"/>
@@ -101,7 +105,11 @@
         <scene sceneID="DR2-8J-vFY">
             <objects>
                 <navigationController id="yrV-AK-vGO" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Операции" image="building.columns" catalog="system" selectedImage="building.columns.fill" id="kQr-gH-JCU"/>
+                    <tabBarItem key="tabBarItem" title="Операции" id="kQr-gH-JCU">
+                        <imageReference key="image" image="building.columns" catalog="system" renderingMode="original"/>
+                        <color key="badgeColor" red="0.93082314730000004" green="0.46152037379999999" blue="0.28621619939999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <imageReference key="selectedImage" image="building.columns.fill" catalog="system" renderingMode="original"/>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="cft-Up-wij">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -203,7 +211,11 @@
         <scene sceneID="z4b-3V-Cbp">
             <objects>
                 <navigationController id="HSP-Ak-Ult" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Ещё" image="list.bullet" catalog="system" selectedImage="list.bullet" id="59e-vu-JtM"/>
+                    <tabBarItem key="tabBarItem" title="Ещё" id="59e-vu-JtM">
+                        <imageReference key="image" image="list.bullet" catalog="system" symbolScale="default" renderingMode="original"/>
+                        <color key="badgeColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <imageReference key="selectedImage" image="list.bullet" catalog="system" renderingMode="original"/>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="mOY-Zx-iaU">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -225,6 +237,9 @@
         <image name="tag" catalog="system" width="128" height="119"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="tintColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
