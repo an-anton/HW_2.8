@@ -17,6 +17,8 @@ class AccountExistingTableViewController: UITableViewController {
     @IBOutlet var amountAccountButton: UIBarButtonItem!
     
     var persons: Person!
+    var delegate: UpdateTabBatTest!
+    
     private var accountTypes: [AccountTypes] = []
     private var accountForTypes: [String: [AccountList]] = [:]
     
@@ -163,5 +165,6 @@ extension AccountExistingTableViewController: RefreshAccountViewControllerDelege
         accountTypes = coutingNumberOfTypes()
         amountAccountButton.title = String(ammountAllAccount()) + " ₽"
         tableView.reloadData()
+        delegate.updateTabBar(with: persons)
     }
 }

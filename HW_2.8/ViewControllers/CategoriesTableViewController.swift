@@ -10,6 +10,7 @@ import UIKit
 class CategoriesTableViewController: UITableViewController {
 
     var categories: [Categories]!
+    
     private var sortedCategories: [Categories] = []
     
     override func viewDidLoad() {

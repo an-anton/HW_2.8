@@ -42,7 +42,6 @@ class AddNewOperacionTableViewController: UITableViewController {
         ammountCurrentTransactionTextField.becomeFirstResponder()
         createToolBar(for: ammountCurrentTransactionTextField)
         createDataPicker(for: dateTextField)
-        print(persons.transaction)
     }
     // MARK: - Actions
     @IBAction func segmentedControlAction() {
@@ -143,7 +142,9 @@ extension AddNewOperacionTableViewController: UITextFieldDelegate {
     @objc func doneDatePicker() {
             let formater = DateFormatter()
             formater.dateFormat = "dd.MM.yy"
+
         dateTextField.text = "Дата:  \(formater.string(from: datePicker.date))"
+
             view.endEditing(true)
     }
 }
