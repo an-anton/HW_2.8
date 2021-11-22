@@ -134,6 +134,14 @@ extension Person {
                     accountBalance: 5000
                 ),
                 Transaction(
+                    dateTransaction: "21.11.2021",
+                    amountTransaction: 1000,
+                    category: "Продукты",
+                    typeTransaction: "Расход",
+                    accountTransactionFrom: "Счёт Сбербанк",
+                    accountBalance: 1000
+                ),
+                Transaction(
                     dateTransaction: "20.11.2021",
                     amountTransaction: 1000,
                     category: "Продукты",

@@ -24,13 +24,13 @@ class AccountExistingTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         amountAccountButton.isEnabled = false
+        accountForTypes = chosenAccountForTypes()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         accountTypes = coutingNumberOfTypes()
         amountAccountButton.title = String(ammountAllAccount()) + " ₽"
-        accountForTypes = chosenAccountForTypes()
         tableView.reloadData()
     }
 

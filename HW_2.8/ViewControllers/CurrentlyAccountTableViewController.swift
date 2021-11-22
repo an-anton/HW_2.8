@@ -65,7 +65,7 @@ class CurrentlyAccountTableViewController: UITableViewController {
         cell.ammountOperationTransactionLable.text = accountCount
         cell.ammountOperationTransactionLable.textColor = cellColor
         cell.accountFromTransactionLable.text = transaction.accountTransactionFrom
-        cell.balanceTransactionLable.text = String(transaction.accountBalance + personIndex.accountStartCount) + " ₽"
+        cell.balanceTransactionLable.text = String(transaction.accountBalance) + " ₽"
         if let image = UIImage(named: transaction.category) {
             cell.imageCategotyTransactionLable.image = image
         }
@@ -75,13 +75,6 @@ class CurrentlyAccountTableViewController: UITableViewController {
 
     
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    
 }
 
 // MARK: - Extension

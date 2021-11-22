@@ -6,121 +6,131 @@
 //
 
 import UIKit
-class AddNewOperacionViewController: UIViewController {
-     // MARK: - Outlets
+
+protocol UpdateCategoryTableViewDelegate {
+    func updateCategory(with newValue: Categories)
+}
+
+protocol UpdateAccountFromTableViewDelegate {
+    func updateAccountFrom(with accountName: String, andAccountBalance: String)
+}
+
+class AddNewOperacionTableViewController: UITableViewController {
+    
+    // MARK: - Outlets
     @IBOutlet var segmentedControlOutlet: UISegmentedControl!
     
-    @IBOutlet var sumTextFieldOutlet: UITextField!
-    @IBOutlet var dateTextFieldOutlet: UITextField!
-    @IBOutlet var saveButtonOutlet: UIBarButtonItem!
-    @IBOutlet var categoryTextFiledOutlet: UITextField!
+    @IBOutlet var currentAccountTransactionLable: UILabel!
+    @IBOutlet var currentCategoryTransactionLable: UILabel!
+    @IBOutlet var currentDateTransactionLable: UILabel!
+    @IBOutlet var currentAccountBalanceLable: UILabel!
     
-    @IBOutlet var accoutTextFieldOutlet: UITextField!
+    @IBOutlet var ammountCurrentTransactionTextField: UITextField!
     
-    @IBOutlet var incomeStackOutlet: UIStackView!
-    @IBOutlet var incomeSumTF: UITextField!
-    @IBOutlet var incomeDateTF: UITextField!
-    @IBOutlet var incomeCategoryTF: UITextField!
-    @IBOutlet var incomeAcountTF: UITextField!
-    
-    @IBOutlet var spendStackLabels: UIStackView!
-    @IBOutlet var spendStackTF: UIStackView!
- 
-     // MARK: - Public preference
+    // MARK: - Public preference
     var persons: Person!
-    
-     // MARK: - Private preverence
+    var delegate: UpdateTransactionsTableViewDelegate!
+
+    // MARK: - Private preverence
     private let datePicker = UIDatePicker()
-    
+    private var typeCurrentTransaction = "Расход"
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        sumTextFieldOutlet.becomeFirstResponder()
-        incomeStackOutlet.isHidden = true
-        createToolBar(textFields: sumTextFieldOutlet, incomeSumTF)
-        createDatePicker(textfields: dateTextFieldOutlet, incomeDateTF)
     }
-     // MARK: - Actions
+    
+    // MARK: - Actions
     @IBAction func segmentedControlAction() {
         switch segmentedControlOutlet.selectedSegmentIndex {
-        case 0:
-            spendStackLabels.isHidden = false
-            spendStackTF.isHidden = false
-            incomeStackOutlet.isHidden = true
-            sumTextFieldOutlet.becomeFirstResponder()
-        default:
-            spendStackLabels.isHidden = true
-            spendStackTF.isHidden = true
-            incomeStackOutlet.isHidden = false
-            incomeSumTF.becomeFirstResponder()
+        case 0: typeCurrentTransaction = "Расход"
+        default: typeCurrentTransaction = "Доход"
+        }
+        print(typeCurrentTransaction)
+    }
+
+    @IBAction func saveButtonPressed(_ sender: Any) {
+        let ammountTransaction = Int(ammountCurrentTransactionTextField.text!) ?? 0
+        //let dateTransaction = currentDateTransactionLable.text ?? ""
+        let categoryTransaction = currentCategoryTransactionLable.text ?? ""
+        let currentAccountBalance = currentAccountBalanceLable.text ?? ""
+        var accountBalance = 0
+        if typeCurrentTransaction == "Доход" {
+            accountBalance =  Int(currentAccountBalance)! + ammountTransaction
+        } else { accountBalance =  Int(currentAccountBalance)! - ammountTransaction }
+        let currentAccountTransactionName = currentAccountTransactionLable.text ?? ""
+        
+        delegate.updateTransaction(with: Transaction(
+            dateTransaction: "22.11.2021",
+            amountTransaction: ammountTransaction,
+            category: categoryTransaction,
+            typeTransaction: typeCurrentTransaction,
+            accountTransactionFrom: currentAccountTransactionName,
+            accountBalance: accountBalance))
+        
+        dismiss(animated: true, completion: .none)
+    }
+    
+    @IBAction func cancelButtonPressed(_ sender: Any) {
+        dismiss(animated: true, completion: .none)
+    }
+    
+    @IBAction func unwindFromChosenCategory(for unwindSegue: UIStoryboardSegue, towards subsequentVC: UIViewController) {
+    }
+    
+    @IBAction func unwindFromChosenAccountFrom(for unwindSegue: UIStoryboardSegue, towards subsequentVC: UIViewController) {
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        datePicker.locale = Locale(identifier: "ru_RU")
+        datePicker.datePickerMode = UIDatePicker.Mode.date
+        datePicker.preferredDatePickerStyle = .compact
+    }
+    
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if  let choosenAccountTypeFrom = segue.destination as? ChosenAccountTypeFromAddTableViewController {
+            choosenAccountTypeFrom.categories = persons.accountСategories
+            choosenAccountTypeFrom.delegate = self
+        } else if let chosenAccountFrom = segue.destination as? ChosenAccountFromTableViewController {
+            chosenAccountFrom.person = persons
+            chosenAccountFrom.delegate = self
         }
     }
     
+    
+
     // MARK: - UIDatePicker
     private func createDatePicker(textfields: UITextField...) {
-        
-    datePicker.locale = Locale(identifier: "ru_RU")
-    datePicker.datePickerMode = UIDatePicker.Mode.date
-    datePicker.preferredDatePickerStyle = .wheels
-            
-    let toolBar = UIToolbar()
-    toolBar.sizeToFit()
-    let doneButton = UIBarButtonItem(title: "done", style: .done, target: self, action: #selector(done))
-    toolBar.setItems([doneButton], animated: true)
-       
-        for textfield in textfields {
-            textfield.inputView = datePicker
-            textfield.inputAccessoryView = toolBar
-        }
-    }
-    @objc func done() {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "dd.MM.yy"
-        
-        dateTextFieldOutlet.text = formatter.string(from: datePicker.date)
-        incomeDateTF.text = formatter.string(from: datePicker.date)
-        view.endEditing(true)
     }
 }
+
     // MARK: - EXTENSION
-extension AddNewOperacionViewController: UITextFieldDelegate {
+extension AddNewOperacionTableViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         textField.becomeFirstResponder()
     }
-   func textFieldDidChangeSelection(_ textField: UITextField) {
-       if sumTextFieldOutlet.text == "" && dateTextFieldOutlet.text == "" {
-           saveButtonOutlet.isEnabled = false
-       } else {
-           saveButtonOutlet.isEnabled = true
-       }
-       
-       if incomeSumTF.text == "" && incomeDateTF.text == "" && incomeAcountTF.text == "" && incomeCategoryTF.text == ""{
-           saveButtonOutlet.isEnabled = false
-       } else {
-           saveButtonOutlet.isEnabled = true
-       }
-   }
-   func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-       textField.endEditing(true)
-       return true
-   }
-   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-       super.view.endEditing(true)
-   }
-    private func createToolBar(textFields: UITextField...) {
-       let toolBar = UIToolbar()
-       toolBar.sizeToFit()
-       let doneButton = UIBarButtonItem(title: "done",
-                                        style: .done,
-                                        target: self,
-                                        action: #selector(doneClicked))
-       toolBar.setItems([doneButton], animated: true)
-        for textField in textFields {
-            textField.inputAccessoryView = toolBar
-        }
-   }
-   @objc func doneClicked() {
-       view.endEditing(true)
-       sumTextFieldOutlet.endEditing(true)
-       dateTextFieldOutlet.endEditing(true)
-   }
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.endEditing(true)
+        return true
+    }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.view.endEditing(true)
+    }
+}
+
+extension AddNewOperacionTableViewController: UpdateCategoryTableViewDelegate {
+    func updateCategory(with newValue: Categories) {
+        currentCategoryTransactionLable.text = newValue.categoriesName
+    }
+}
+
+extension AddNewOperacionTableViewController: UpdateAccountFromTableViewDelegate {
+    func updateAccountFrom(with accountName: String, andAccountBalance: String) {
+        currentAccountTransactionLable.text = accountName
+        currentAccountBalanceLable.text = andAccountBalance
+    }
 }
