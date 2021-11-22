@@ -19,7 +19,6 @@ class StartTabBarController: UITabBarController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         setupViewControllers()
-        print("Всё работает")
     }
     
     private func setupViewControllers() {

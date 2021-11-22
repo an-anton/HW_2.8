@@ -55,13 +55,10 @@ class AccountExistingTableViewController: UITableViewController {
         
         let accountsFromCurrentType = accountForTypes[accountTypes[indexPath.section].rawValue]!
         let currentAccount = accountsFromCurrentType[indexPath.row]
-        
         var content = cell.defaultContentConfiguration()
-        
         let accountCount = String(currentAccount.accountStartCount + ammountAllTransaction(for: currentAccount)) + " ₽"
         content.text = currentAccount.accountName
         content.secondaryText = accountCount
-        
         cell.contentConfiguration = content
         
         return cell
