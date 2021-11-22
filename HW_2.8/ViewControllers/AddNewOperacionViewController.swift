@@ -41,7 +41,6 @@ class AddNewOperacionTableViewController: UITableViewController {
         super.viewDidLoad()
         ammountCurrentTransactionTextField.becomeFirstResponder()
         createToolBar(for: ammountCurrentTransactionTextField)
-        dateTextField.text = "23.11.21"
         createDataPicker(for: dateTextField)
     }
     // MARK: - Actions
@@ -125,7 +124,6 @@ extension AddNewOperacionTableViewController: UITextFieldDelegate {
         }
     
     private func createDataPicker(for textField: UITextField) {
-        let datePicker = UIDatePicker()
         datePicker.preferredDatePickerStyle = .wheels
         datePicker.datePickerMode = .date
         datePicker.locale = Locale(identifier: "ru_RU")
@@ -144,8 +142,9 @@ extension AddNewOperacionTableViewController: UITextFieldDelegate {
     @objc func doneDatePicker() {
             let formater = DateFormatter()
             formater.dateFormat = "dd.MM.yy"
-        dateTextField.text = formater.string(from: datePicker.date)
-   
+
+        dateTextField.text = "Дата:  \(formater.string(from: datePicker.date))"
+
             view.endEditing(true)
     }
 }
