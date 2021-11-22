@@ -56,7 +56,6 @@ class AddNewOperacionTableViewController: UITableViewController {
     @IBAction func saveButtonPressed(_ sender: Any) {
         
         let ammountTransaction = Int(ammountCurrentTransactionTextField.text!) ?? 0
-        //let dateTransaction = currentDateTransactionLable.text ?? ""
         let categoryTransaction = currentCategoryTransactionLable.text ?? ""
         let currentAccountBalance = currentAccountBalanceLable.text ?? ""
         var accountBalance = 0
@@ -66,7 +65,7 @@ class AddNewOperacionTableViewController: UITableViewController {
         let currentAccountTransactionName = currentAccountTransactionLable.text ?? ""
         
         delegate.updateTransaction(with: Transaction(
-            dateTransaction: "22.11.2021",
+            dateTransaction: dateTextField.text ?? "ERROR",
             amountTransaction: ammountTransaction,
             category: categoryTransaction,
             typeTransaction: typeCurrentTransaction,
@@ -145,7 +144,8 @@ extension AddNewOperacionTableViewController: UITextFieldDelegate {
     @objc func doneDatePicker() {
             let formater = DateFormatter()
             formater.dateFormat = "dd.MM.yy"
-            dateTextField.text = "Дата: \(formater.string(from: datePicker.date))"
+        dateTextField.text = "Дата: \(formater.string(from: datePicker.date))"
+   
             view.endEditing(true)
     }
 }

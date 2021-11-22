@@ -20,21 +20,18 @@ class LoginViewController: UIViewController {
     
     private var persons = Person.getPerson()
     
-     // MARK: - Private properties
-    private let user = ""
-    private let password = ""
     
      // MARK: - @IBActions
     @IBAction func logInButtonAction() {
-        if loginTextField.text != user || passwordTextField.text != password {
+        if loginTextField.text != persons.login || passwordTextField.text != persons.password {
             showAlert(message: "Enter your username and password")
         }
     }
     
     @IBAction func forgotAction(_ sender: UIButton) {
         sender.tag == 0
-        ? showAlert(message: "Your username is \(user)")
-        : showAlert(message: "Your password is \(password)")
+        ? showAlert(message: "Your username is \(persons.login)")
+        : showAlert(message: "Your password is \(persons.password)")
     }
     
     @IBAction func unwindExit(for unwindSegue: UIStoryboardSegue) {
