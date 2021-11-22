@@ -14,15 +14,4 @@ class TransactionsTableViewCell: UITableViewCell {
     @IBOutlet var accountFromTransactionLable: UILabel!
     @IBOutlet var balanceTransactionLable: UILabel!
     @IBOutlet var imageCategotyTransactionLable: UIImageView!
-    
-//    override func awakeFromNib() {
-//        super.awakeFromNib()
-//    }
-//
-//    override func setSelected(_ selected: Bool, animated: Bool) {
-//        super.setSelected(selected, animated: animated)
-//
-//        // Configure the view for the selected state
-//    }
-
 }

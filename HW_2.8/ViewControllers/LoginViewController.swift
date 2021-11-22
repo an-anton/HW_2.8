@@ -8,6 +8,7 @@
 import UIKit
 
 class LoginViewController: UIViewController {
+    
      // MARK: - @IBOutlets
     @IBOutlet var loginTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
@@ -16,25 +17,37 @@ class LoginViewController: UIViewController {
             logInButton.layer.cornerRadius = logInButton.frame.height / 4
         }
     }
-     // MARK: - Private properties
-    private let user = ""
-    private let password = ""
+     
+    
+    private var persons = Person.getPerson()
+    
     
      // MARK: - @IBActions
     @IBAction func logInButtonAction() {
-        if loginTextField.text != user || passwordTextField.text != password {
+        if loginTextField.text != persons.login || passwordTextField.text != persons.password {
             showAlert(message: "Enter your username and password")
         }
     }
     
     @IBAction func forgotAction(_ sender: UIButton) {
         sender.tag == 0
-        ? showAlert(message: "Your username is \(user)")
-        : showAlert(message: "Your password is \(password)")
+        ? showAlert(message: "Your username is \(persons.login)")
+        : showAlert(message: "Your password is \(persons.password)")
     }
     
-    @IBAction func unwind(for unwindSegue: UIStoryboardSegue) {
+    @IBAction func unwindExit(for unwindSegue: UIStoryboardSegue) {
+        loginTextField.text = ""
+        passwordTextField.text = ""
+        
+        guard let moreVC = unwindSegue.source as? MoreTableViewController else { return }
+        persons = moreVC.persons
     }
+    
+    // MARK: - Navigation
+   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+       guard let tabBarVC = segue.destination as? StartTabBarController else { return }
+       tabBarVC.persons = persons
+   }
 }
 
  // MARK: - UIAlertController
@@ -44,8 +57,10 @@ extension LoginViewController {
         let okAction = UIAlertAction(title: "OK", style: .default)
         alert.addAction(okAction)
         present(alert, animated: true)
+        
     }
 }
+
  // MARK: - UITextFieldDelegate
 extension LoginViewController: UITextFieldDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -64,3 +79,4 @@ extension LoginViewController: UITextFieldDelegate {
         return true
     }
 }
+

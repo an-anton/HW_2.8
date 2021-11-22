@@ -15,7 +15,6 @@ class CurrentlyAccountTableViewController: UITableViewController {
     var personIndex: AccountList!
     var personTransactions: [Transaction]!
     var datesWithCurrentlyAccountTransaction: [String: [Transaction]] = [:]
-    //var datesArray: [String] = []
     var datesTransaction: [String] = []
     
     override func viewDidLoad() {
@@ -27,7 +26,6 @@ class CurrentlyAccountTableViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
         return datesTransaction.count
     }
@@ -44,7 +42,7 @@ class CurrentlyAccountTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 62
+        return 61
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -66,7 +64,7 @@ class CurrentlyAccountTableViewController: UITableViewController {
         cell.ammountOperationTransactionLable.text = accountCount
         cell.ammountOperationTransactionLable.textColor = cellColor
         cell.accountFromTransactionLable.text = transaction.accountTransactionFrom
-        cell.balanceTransactionLable.text = "0"
+        cell.balanceTransactionLable.text = String(transaction.accountBalance) + " ₽"
         if let image = UIImage(named: transaction.category) {
             cell.imageCategotyTransactionLable.image = image
         }
@@ -76,19 +74,12 @@ class CurrentlyAccountTableViewController: UITableViewController {
 
     
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    
 }
 
 // MARK: - Extension
 
 extension CurrentlyAccountTableViewController {
-    func ChosenDatesTransactionFromCurrentlyAccount() -> [String] {
+    private func ChosenDatesTransactionFromCurrentlyAccount() -> [String] {
         var datesTransaction: Set<String> = []
         
         for personTransaction in personTransactions {
@@ -99,7 +90,7 @@ extension CurrentlyAccountTableViewController {
         return sortedDaysTransaction
     }
 
-    func chosenTransactionsFromCurrentlyAccountForDates() -> [String: [Transaction]] {
+    private func chosenTransactionsFromCurrentlyAccountForDates() -> [String: [Transaction]] {
         var transactionsForDates: [String: [Transaction]] = [:]
 
         for currentlyDate in datesTransaction {
@@ -118,7 +109,7 @@ extension CurrentlyAccountTableViewController {
         return transactionsForDates
     }
     
-    func ammountTransactionsForCurrentAccount() -> Int {
+    private func ammountTransactionsForCurrentAccount() -> Int {
         var ammount = 0
         
         for personAccountList in person.accountList {

@@ -7,34 +7,41 @@
 
 import UIKit
 
+protocol UpdateTransactionsTableViewDelegate {
+    func updateTransaction(with currentTransaction: Transaction)
+}
+
 class AllAccountTransactionTableViewController: UITableViewController {
+   
+    //MARK: - @IBOutlet
     @IBOutlet var ammoutAccountButton: UIBarButtonItem!
     
-    var persons = Person.getPerson()
-    var personTransactions: [Transaction]!
     
-    private var ammountArray: [Transaction] = []
+    //MARK: - Properties
+    var persons: Person!
+    
+    //MARK: - Private properties
     private var ammountRows1: [String: [Transaction]] = [:]
-    private var datesArray: [String] = []
     private var date: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        date = apdateCountOfHowManyDate()
-        ammountRows1 = apdateArray()
         ammoutAccountButton.isEnabled = false
+        ammountRows1 = chosenAllTransactionForDates()
+        date = apdateCountOfHowManyDate()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         ammoutAccountButton.title = String(ammountAllAccount()) + " ₽"
-        tableView.reloadData()
+        print(persons.transaction)
     }
 
+    @IBAction func addButton(_ sender: UIBarButtonItem) {
+    }
+    
     // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
-        
         return date.count
     }
     
@@ -49,72 +56,51 @@ class AllAccountTransactionTableViewController: UITableViewController {
         let transactionsArray = arrayOfTransaction[dataSection]!.count
         return transactionsArray
     }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 61
+    }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-
-        let transactions = ammountRows1[date[indexPath.section]]!
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TransactionsTableViewCell
+        let arrayOfTransaction = ammountRows1
+        let transactions = arrayOfTransaction[date[indexPath.section]]!
         let transaction = transactions[indexPath.row]
-        var content = cell.defaultContentConfiguration()
         
-        content.text = transaction.category
+        cell.categoryTransactionLable.text = transaction.category
+        for transactionList in persons.accountList {
+            if transactionList.accountName == transaction.accountTransactionFrom {
+                cell.balanceTransactionLable.text = String(transaction.accountBalance) + " ₽"
+            }
+        }
+        cell.accountFromTransactionLable.text = transaction.accountTransactionFrom
         let accountCount: String
         if transaction.typeTransaction == "Доход" {
             accountCount = "+ \(transaction.amountTransaction) ₽"
         } else { accountCount = "- \(transaction.amountTransaction) ₽" }
-        content.secondaryText = accountCount
-        cell.contentConfiguration = content
+        cell.ammountOperationTransactionLable.text = accountCount
 
+        if let image = UIImage(named: transaction.category) {
+            cell.imageCategotyTransactionLable.image = image
+        }
+        
         return cell
     }
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+     //MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        guard let navigationVC = segue.destination as? UINavigationController else { return }
+        guard let addNewOperacionVC = navigationVC.topViewController as? AddNewOperacionTableViewController else { return }
+        addNewOperacionVC.persons = persons
+        addNewOperacionVC.delegate = self
     }
-    */
+    
+    @IBAction func unwind(for segue: UIStoryboardSegue) {
+    }
 
 }
 
+//MARK: - Extension
 extension AllAccountTransactionTableViewController {
     func apdateCountOfHowManyDate() -> [String] {
         var dates1: Set<String> = []
@@ -127,23 +113,19 @@ extension AllAccountTransactionTableViewController {
         return sortedDays
     }
     
-    func apdateArray() -> [String: [Transaction]] {
+    func chosenAllTransactionForDates() -> [String: [Transaction]] {
         var ammountRows1: [String: [Transaction]] = [:]
-        var dates: Set<String> = []
-        
-        for transaction in persons.transaction {
-            dates.insert(transaction.dateTransaction)
-        }
-        
+        let dates = apdateCountOfHowManyDate()
+
         for date in dates {
-            var array: [Transaction] = []
+            var arrayTransactions: [Transaction] = []
             for transaction in persons.transaction {
                 if transaction.dateTransaction == date {
-                    array.append(transaction)
+                    arrayTransactions.append(transaction)
                     if ammountRows1[date]?.count != 0 {
-                        ammountRows1.updateValue(array, forKey: date)
+                        ammountRows1.updateValue(arrayTransactions, forKey: date)
                     } else {
-                        ammountRows1[date] = array
+                        ammountRows1[date] = arrayTransactions
                     }
                 }
             }
@@ -151,18 +133,18 @@ extension AllAccountTransactionTableViewController {
         return ammountRows1
     }
     
-     func ammountAllAccount() -> Int {
-        var ammount = 0
-        for accountList in persons.accountList {
-            ammount = ammount + accountList.accountStartCount
-        }
-        for transaction in persons.transaction {
-            if transaction.typeTransaction == "Доход" {
-                ammount = ammount + transaction.amountTransaction
-            } else { ammount = ammount - transaction.amountTransaction }
-        }
-        return ammount
+    func ammountAllAccount() -> Int {
+    var ammount = 0
+    for accountList in persons.accountList {
+        ammount = ammount + accountList.accountStartCount
     }
+    for transaction in persons.transaction {
+        if transaction.typeTransaction == "Доход" {
+            ammount = ammount + transaction.amountTransaction
+        } else { ammount = ammount - transaction.amountTransaction }
+    }
+    return ammount
+}
     
     func ammountAllTransaction(for person: AccountList) -> Int {
         var summAllTransaction = 0
@@ -174,5 +156,15 @@ extension AllAccountTransactionTableViewController {
             }
         }
         return summAllTransaction
+    }
+}
+
+//MARK: - Protocol
+extension AllAccountTransactionTableViewController: UpdateTransactionsTableViewDelegate {
+    func updateTransaction(with currentTransaction: Transaction) {
+        persons.transaction.insert(currentTransaction, at: 0)
+        date = apdateCountOfHowManyDate()
+        ammountRows1 = chosenAllTransactionForDates()
+        tableView.reloadData()
     }
 }

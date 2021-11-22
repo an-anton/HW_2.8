@@ -7,6 +7,7 @@
 
 import UIKit
 
+// MARK: - Protocol
 protocol RefreshAccountViewControllerDelegete {
     func addNewAccount(with newValue: AccountList)
 }
@@ -15,24 +16,25 @@ class AccountExistingTableViewController: UITableViewController {
     
     @IBOutlet var amountAccountButton: UIBarButtonItem!
     
-    var persons = Person.getPerson()
-    var accountTypes: [AccountTypes] = []
-    var accountForTypes: [String: [AccountList]] = [:]
+    var persons: Person!
+    private var accountTypes: [AccountTypes] = []
+    private var accountForTypes: [String: [AccountList]] = [:]
     
+    // MARK: - Ovvarride
     override func viewDidLoad() {
         super.viewDidLoad()
         amountAccountButton.isEnabled = false
-        accountTypes = coutingNumberOfTypes()
+        accountForTypes = chosenAccountForTypes()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        accountTypes = coutingNumberOfTypes()
         amountAccountButton.title = String(ammountAllAccount()) + " ₽"
-        accountForTypes = chosenAccountForTypes()
+        tableView.reloadData()
     }
 
     // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
         accountTypes.count
     }
@@ -53,16 +55,17 @@ class AccountExistingTableViewController: UITableViewController {
         
         let accountsFromCurrentType = accountForTypes[accountTypes[indexPath.section].rawValue]!
         let currentAccount = accountsFromCurrentType[indexPath.row]
-        
         var content = cell.defaultContentConfiguration()
-        
         let accountCount = String(currentAccount.accountStartCount + ammountAllTransaction(for: currentAccount)) + " ₽"
         content.text = currentAccount.accountName
         content.secondaryText = accountCount
-        
         cell.contentConfiguration = content
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     // MARK: - Navigation
@@ -81,7 +84,6 @@ class AccountExistingTableViewController: UITableViewController {
             guard let currentlyTVC = navigationVC.topViewController
                     as? CurrentlyAccountTableViewController else { return }
             guard let indexPath = tableView.indexPathForSelectedRow else { return }
-            print(indexPath)
             let accountsFromCurrentType = accountForTypes[accountTypes[indexPath.section].rawValue]!
             let currentAccount = accountsFromCurrentType[indexPath.row]
             
@@ -89,14 +91,13 @@ class AccountExistingTableViewController: UITableViewController {
             
             currentlyTVC.person = persons
             currentlyTVC.personTransactions = personAccountFroms
-//            let personFromIndex = persons.accountList[indexPath.row]
             currentlyTVC.personIndex = currentAccount
         }
     }
 }
     // MARK: - Extension
 extension AccountExistingTableViewController {
-    func ammountAllAccount() -> Int {
+    private func ammountAllAccount() -> Int {
         var ammount = 0
         for accountList in persons.accountList {
             ammount = ammount + accountList.accountStartCount
@@ -109,24 +110,24 @@ extension AccountExistingTableViewController {
         return ammount
     }
     
-    func ammountAllTransaction(for person: AccountList) -> Int {
+    private func ammountAllTransaction(for person: AccountList) -> Int {
         var summAllTransaction = 0
         for transaction in persons.transaction {
             if transaction.accountTransactionFrom == person.accountName {
                 if transaction.typeTransaction == "Доход" {
                     summAllTransaction = summAllTransaction + transaction.amountTransaction
-                } else {summAllTransaction = summAllTransaction - transaction.amountTransaction}
+                } else { summAllTransaction = summAllTransaction - transaction.amountTransaction }
             }
         }
         return summAllTransaction
     }
     
-    func coutingNumberOfTypes() -> [AccountTypes] {
-        let accountTypes: [AccountTypes] = [.cash, .card]
+    private func coutingNumberOfTypes() -> [AccountTypes] {
+        let accountTypes: [AccountTypes] = [.cash, .card, .bankBill]
         return accountTypes
     }
     
-    func choosenTransactionsFromCurrentAccount(with currentAccount: AccountList) -> [Transaction] {
+    private func choosenTransactionsFromCurrentAccount(with currentAccount: AccountList) -> [Transaction] {
         var personAccountFroms: [Transaction] = []
         for person in persons.transaction {
             if person.accountTransactionFrom == currentAccount.accountName {
@@ -136,7 +137,7 @@ extension AccountExistingTableViewController {
         return personAccountFroms
     }
 
-    func chosenAccountForTypes() -> [String: [AccountList]] {
+    private func chosenAccountForTypes() -> [String: [AccountList]] {
         var accountsForTypes: [String: [AccountList]] = [:]
         for currentlyType in persons.accountTypes {
             var accounts: [AccountList] = []
@@ -158,6 +159,9 @@ extension AccountExistingTableViewController {
 extension AccountExistingTableViewController: RefreshAccountViewControllerDelegete {
     func addNewAccount(with newValue: AccountList) {
         persons.accountList.append(newValue)
+        accountForTypes = chosenAccountForTypes()
+        accountTypes = coutingNumberOfTypes()
+        amountAccountButton.title = String(ammountAllAccount()) + " ₽"
         tableView.reloadData()
     }
 }
