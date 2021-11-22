@@ -125,7 +125,6 @@ extension AddNewOperacionTableViewController: UITextFieldDelegate {
         }
     
     private func createDataPicker(for textField: UITextField) {
-        let datePicker = UIDatePicker()
         datePicker.preferredDatePickerStyle = .wheels
         datePicker.datePickerMode = .date
         datePicker.locale = Locale(identifier: "ru_RU")
@@ -144,8 +143,7 @@ extension AddNewOperacionTableViewController: UITextFieldDelegate {
     @objc func doneDatePicker() {
             let formater = DateFormatter()
             formater.dateFormat = "dd.MM.yy"
-        dateTextField.text = "Дата: \(formater.string(from: datePicker.date))"
-   
+        dateTextField.text = "Дата:  \(formater.string(from: datePicker.date))"
             view.endEditing(true)
     }
 }
