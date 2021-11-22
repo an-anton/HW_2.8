@@ -16,7 +16,6 @@ class ChosenAccountTypeFromAddTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         sortedCategories = categories.sorted(by: { $0.categoriesName < $1.categoriesName })
     }
 

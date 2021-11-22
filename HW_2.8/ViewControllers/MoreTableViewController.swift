@@ -20,12 +20,12 @@ class MoreTableViewController: UITableViewController {
     }
 
     // MARK: - Navigation
-
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let categoriesVC = segue.destination as? CategoriesTableViewController else { return }
         categoriesVC.categories = persons.accountСategories
     }
 }
+
     // MARK: - Extension
 extension MoreTableViewController: CategoriesTableViewDalegete {
     func addNewCategory(with newValue: Categories) {

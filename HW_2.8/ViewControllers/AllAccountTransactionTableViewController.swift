@@ -19,12 +19,9 @@ class AllAccountTransactionTableViewController: UITableViewController {
     
     //MARK: - Properties
     var persons: Person!
-    //var personTransactions: [Transaction]!
     
     //MARK: - Private properties
-    private var ammountArray: [Transaction] = []
     private var ammountRows1: [String: [Transaction]] = [:]
-    private var datesArray: [String] = []
     private var date: [String] = []
     
     override func viewDidLoad() {
@@ -37,7 +34,7 @@ class AllAccountTransactionTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         ammoutAccountButton.title = String(ammountAllAccount()) + " ₽"
-       // print("Обновлённый экземляр модели \(persons.transaction)")
+        print(persons.transaction)
     }
 
     @IBAction func addButton(_ sender: UIBarButtonItem) {
@@ -66,7 +63,6 @@ class AllAccountTransactionTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TransactionsTableViewCell
-        //let arrayOfTransaction = chosenAllTransactionForDates()
         let arrayOfTransaction = ammountRows1
         let transactions = arrayOfTransaction[date[indexPath.section]]!
         let transaction = transactions[indexPath.row]
@@ -119,12 +115,8 @@ extension AllAccountTransactionTableViewController {
     
     func chosenAllTransactionForDates() -> [String: [Transaction]] {
         var ammountRows1: [String: [Transaction]] = [:]
-        var dates: Set<String> = []
-        
-        for transaction in persons.transaction {
-            dates.insert(transaction.dateTransaction)
-        }
-        
+        let dates = apdateCountOfHowManyDate()
+
         for date in dates {
             var arrayTransactions: [Transaction] = []
             for transaction in persons.transaction {
@@ -171,10 +163,8 @@ extension AllAccountTransactionTableViewController {
 extension AllAccountTransactionTableViewController: UpdateTransactionsTableViewDelegate {
     func updateTransaction(with currentTransaction: Transaction) {
         persons.transaction.insert(currentTransaction, at: 0)
-        //persons.transaction.append(currentTransaction)
-        ammountRows1 = chosenAllTransactionForDates()
-        print(ammountRows1)
         date = apdateCountOfHowManyDate()
+        ammountRows1 = chosenAllTransactionForDates()
         tableView.reloadData()
     }
 }

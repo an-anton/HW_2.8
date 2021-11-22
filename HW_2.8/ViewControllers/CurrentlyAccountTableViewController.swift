@@ -15,7 +15,6 @@ class CurrentlyAccountTableViewController: UITableViewController {
     var personIndex: AccountList!
     var personTransactions: [Transaction]!
     var datesWithCurrentlyAccountTransaction: [String: [Transaction]] = [:]
-    //var datesArray: [String] = []
     var datesTransaction: [String] = []
     
     override func viewDidLoad() {

@@ -16,11 +16,6 @@ class StartTabBarController: UITabBarController {
         setupViewControllers()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        setupViewControllers()
-    }
-    
     private func setupViewControllers() {
         for viewController in viewControllers! {
             if let navigationVC = viewController as? UINavigationController {

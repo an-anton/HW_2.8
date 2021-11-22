@@ -42,6 +42,7 @@ class AddNewOperacionTableViewController: UITableViewController {
         ammountCurrentTransactionTextField.becomeFirstResponder()
         createToolBar(for: ammountCurrentTransactionTextField)
         createDataPicker(for: dateTextField)
+        print(persons.transaction)
     }
     // MARK: - Actions
     @IBAction func segmentedControlAction() {
@@ -51,7 +52,6 @@ class AddNewOperacionTableViewController: UITableViewController {
         }
         print(typeCurrentTransaction)
     }
-
     
     @IBAction func saveButtonPressed(_ sender: Any) {
         
@@ -85,11 +85,6 @@ class AddNewOperacionTableViewController: UITableViewController {
     
     @IBAction func unwindFromChosenAccountFrom(for unwindSegue: UIStoryboardSegue, towards subsequentVC: UIViewController) {
     }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       
-    }
-
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -154,8 +149,6 @@ extension AddNewOperacionTableViewController: UITextFieldDelegate {
             view.endEditing(true)
     }
 }
-
-
 
 extension AddNewOperacionTableViewController: UpdateCategoryTableViewDelegate {
     func updateCategory(with newValue: Categories) {
