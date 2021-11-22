@@ -17,6 +17,7 @@ class LoginViewController: UIViewController {
             logInButton.layer.cornerRadius = logInButton.frame.height / 4
         }
     }
+     
     
     private var persons = Person.getPerson()
     
@@ -56,6 +57,7 @@ extension LoginViewController {
         let okAction = UIAlertAction(title: "OK", style: .default)
         alert.addAction(okAction)
         present(alert, animated: true)
+        
     }
 }
 
