@@ -64,7 +64,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="uJf-ab-rhV">
-                                <rect key="frame" x="50" y="227" width="314" height="187"/>
+                                <rect key="frame" x="50" y="227" width="314" height="85"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="введите сумму" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Pk-Zy-IAL">
                                         <rect key="frame" x="0.0" y="0.0" width="314" height="34"/>
@@ -74,24 +74,8 @@
                                             <outlet property="delegate" destination="eUK-Wd-BNa" id="dVc-Kl-VSM"/>
                                         </connections>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="укажите дату" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="C7g-qs-6YV">
-                                        <rect key="frame" x="0.0" y="51" width="314" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="eUK-Wd-BNa" id="mUF-QK-g4q"/>
-                                        </connections>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Категория" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y9j-iE-C5c">
-                                        <rect key="frame" x="0.0" y="102" width="314" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="eUK-Wd-BNa" id="2nC-tL-OyI"/>
-                                        </connections>
-                                    </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="счет пополнения" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ym8-eN-OUB">
-                                        <rect key="frame" x="0.0" y="153" width="314" height="34"/>
+                                        <rect key="frame" x="0.0" y="51" width="314" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
@@ -100,46 +84,50 @@
                                     </textField>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="254" axis="vertical" alignment="top" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="CuN-rm-Vph" userLabel="расход">
-                                <rect key="frame" x="50" y="235" width="184" height="181"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="сумма покупки:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="waO-ZJ-koq">
-                                        <rect key="frame" x="0.0" y="0.0" width="127.5" height="19"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="дата покупки:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aAY-kv-S2q">
-                                        <rect key="frame" x="0.0" y="54" width="112" height="19"/>
-                                        <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="категория:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IWT-jg-HYs">
-                                        <rect key="frame" x="0.0" y="108" width="84.5" height="19"/>
-                                        <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="счет списания:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="req-qd-rMg">
-                                        <rect key="frame" x="0.0" y="162" width="116.5" height="19"/>
-                                        <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="сумма покупки:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="waO-ZJ-koq">
+                                <rect key="frame" x="50" y="235" width="127.5" height="19"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="дата покупки:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aAY-kv-S2q">
+                                <rect key="frame" x="50" y="289" width="112" height="19"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="категория:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IWT-jg-HYs">
+                                <rect key="frame" x="50" y="343" width="84.5" height="19"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="счет списания:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="req-qd-rMg">
+                                <rect key="frame" x="50" y="397" width="116.5" height="19"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Категория" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y9j-iE-C5c">
+                                <rect key="frame" x="50" y="704" width="314" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="eUK-Wd-BNa" id="2nC-tL-OyI"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="00k-WU-GrN"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="FYI-pc-8QR" firstAttribute="leading" relation="lessThanOrEqual" secondItem="CuN-rm-Vph" secondAttribute="trailing" id="1rE-RG-dt6"/>
                             <constraint firstItem="FYI-pc-8QR" firstAttribute="width" secondItem="RG2-5l-h4n" secondAttribute="width" multiplier="0.414013" id="NZT-60-iho"/>
                             <constraint firstItem="RG2-5l-h4n" firstAttribute="leading" secondItem="00k-WU-GrN" secondAttribute="leading" constant="50" id="OIe-gm-3V2"/>
-                            <constraint firstItem="CuN-rm-Vph" firstAttribute="leading" secondItem="RG2-5l-h4n" secondAttribute="leading" id="TVV-UM-C6l"/>
                             <constraint firstItem="uJf-ab-rhV" firstAttribute="trailing" secondItem="RG2-5l-h4n" secondAttribute="trailing" id="W59-Xi-kSL"/>
-                            <constraint firstItem="CuN-rm-Vph" firstAttribute="top" secondItem="RG2-5l-h4n" secondAttribute="bottom" constant="96" id="XZc-dD-KXO"/>
                             <constraint firstItem="uJf-ab-rhV" firstAttribute="leading" secondItem="RG2-5l-h4n" secondAttribute="leading" id="bFe-vU-0eW"/>
                             <constraint firstItem="RG2-5l-h4n" firstAttribute="top" secondItem="00k-WU-GrN" secondAttribute="top" constant="20" id="kcG-lD-BPw"/>
                             <constraint firstItem="FYI-pc-8QR" firstAttribute="trailing" secondItem="RG2-5l-h4n" secondAttribute="trailing" id="pih-g1-gBg"/>
@@ -168,7 +156,6 @@
                         <outlet property="incomeSumTF" destination="5Pk-Zy-IAL" id="ouq-Ab-GTB"/>
                         <outlet property="saveButtonOutlet" destination="aRw-p2-OLH" id="QiF-eS-C4s"/>
                         <outlet property="segmentedControlOutlet" destination="RG2-5l-h4n" id="f5n-HZ-6B2"/>
-                        <outlet property="spendStackLabels" destination="CuN-rm-Vph" id="zFp-EH-VJ7"/>
                         <outlet property="spendStackTF" destination="FYI-pc-8QR" id="lKH-Ac-zfl"/>
                         <outlet property="sumTextFieldOutlet" destination="LdE-Q9-fu3" id="4uO-4h-9Vn"/>
                     </connections>
@@ -216,19 +203,19 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="TFa-ea-pvF">
-                                        <rect key="frame" x="0.0" y="62" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="62" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TFa-ea-pvF" id="eC8-Pu-g6F">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sBC-ow-mx0">
-                                                    <rect key="frame" x="20" y="0.0" width="360" height="43"/>
+                                                    <rect key="frame" x="20" y="0.0" width="360" height="42.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                                 </textField>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="₽" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3aW-ee-oFk">
-                                                    <rect key="frame" x="383" y="14" width="11" height="21.5"/>
+                                                    <rect key="frame" x="383" y="14" width="11" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="11" id="MwS-Bf-hoe"/>
                                                     </constraints>
@@ -249,14 +236,14 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="WEJ-yS-0VQ">
-                                        <rect key="frame" x="0.0" y="106" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="105.5" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WEJ-yS-0VQ" id="sd2-AF-lam">
-                                            <rect key="frame" x="0.0" y="0.0" width="384.5" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="384.5" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Категория" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i7d-Uj-932">
-                                                    <rect key="frame" x="20" y="11" width="83" height="21"/>
+                                                    <rect key="frame" x="20" y="11" width="83" height="21.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -273,20 +260,20 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="DfB-rJ-SyH">
-                                        <rect key="frame" x="0.0" y="149.5" width="414" height="44.5"/>
+                                        <rect key="frame" x="0.0" y="149.5" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DfB-rJ-SyH" id="lRy-O3-fj9">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Счёт списание" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="srY-0c-E0r">
-                                                    <rect key="frame" x="20" y="11" width="118.5" height="21.5"/>
+                                                    <rect key="frame" x="20" y="11" width="118.5" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="URl-Ca-YsO">
-                                                    <rect key="frame" x="394" y="11" width="0.0" height="22"/>
+                                                    <rect key="frame" x="394" y="11" width="0.0" height="21.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -305,24 +292,27 @@
                                             <segue destination="Cpo-63-TbD" kind="show" id="c80-v3-FzF"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="dateCell" id="cPJ-rx-p0J">
-                                        <rect key="frame" x="0.0" y="194" width="414" height="43.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="dateCell" rowHeight="44" id="cPJ-rx-p0J">
+                                        <rect key="frame" x="0.0" y="193.5" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cPJ-rx-p0J" id="mgB-7p-uEz">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Дата" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ooG-Rx-aUN">
-                                                    <rect key="frame" x="20" y="11" width="38.5" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Дата" placeholder="укажите дату" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="C7g-qs-6YV">
+                                                    <rect key="frame" x="20" y="0.0" width="394" height="44"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="eUK-Wd-BNa" id="mUF-QK-g4q"/>
+                                                    </connections>
+                                                </textField>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="ooG-Rx-aUN" firstAttribute="leading" secondItem="mgB-7p-uEz" secondAttribute="leadingMargin" id="BLW-eo-dfs"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="ooG-Rx-aUN" secondAttribute="bottom" constant="0.5" id="kIO-AG-nSS"/>
-                                                <constraint firstItem="ooG-Rx-aUN" firstAttribute="top" secondItem="mgB-7p-uEz" secondAttribute="topMargin" id="lhi-b6-66E"/>
+                                                <constraint firstAttribute="bottom" secondItem="C7g-qs-6YV" secondAttribute="bottom" id="YhS-yH-T2l"/>
+                                                <constraint firstItem="C7g-qs-6YV" firstAttribute="leading" secondItem="mgB-7p-uEz" secondAttribute="leading" constant="20" id="cOs-lR-RI9"/>
+                                                <constraint firstAttribute="trailing" secondItem="C7g-qs-6YV" secondAttribute="trailing" id="dN9-iK-dZG"/>
+                                                <constraint firstItem="C7g-qs-6YV" firstAttribute="top" secondItem="mgB-7p-uEz" secondAttribute="top" id="whX-zZ-SFr"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -337,7 +327,7 @@
                     <navigationItem key="navigationItem" id="WnR-Oa-LdH">
                         <barButtonItem key="leftBarButtonItem" title="Отменить" id="JfA-bR-lci">
                             <connections>
-                                <action selector="cancelButton:" destination="ldJ-J0-VSE" id="eLX-z2-09w"/>
+                                <action selector="cancelButtonPressed:" destination="ldJ-J0-VSE" id="o0o-vc-GI4"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Сохранить" id="H4O-cN-mbr">
@@ -351,13 +341,14 @@
                         <outlet property="currentAccountBalanceLable" destination="URl-Ca-YsO" id="L7b-n4-goL"/>
                         <outlet property="currentAccountTransactionLable" destination="srY-0c-E0r" id="Sd8-Ap-UCT"/>
                         <outlet property="currentCategoryTransactionLable" destination="i7d-Uj-932" id="COc-vK-bWc"/>
-                        <outlet property="currentDateTransactionLable" destination="ooG-Rx-aUN" id="ubH-tO-mzU"/>
+                        <outlet property="dateTextField" destination="C7g-qs-6YV" id="ZUe-UG-5la"/>
+                        <outlet property="saveButtonOutlet" destination="H4O-cN-mbr" id="5t1-wy-Vb1"/>
                         <outlet property="segmentedControlOutlet" destination="VEd-cM-LP7" id="nI5-XH-vIv"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qzy-8A-rac" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3358" y="1136"/>
+            <point key="canvasLocation" x="3357.971014492754" y="1135.0446428571429"/>
         </scene>
         <!--Категория-->
         <scene sceneID="JfC-jJ-W9W">
@@ -444,7 +435,6 @@
         <!--Navigation Controller-->
         <scene sceneID="MEy-rI-Bwc">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="c9L-4A-a0a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qX5-jV-iin" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="7yM-zk-DOK">
@@ -456,6 +446,7 @@
                         <segue destination="ldJ-J0-VSE" kind="relationship" relationship="rootViewController" id="ge7-M8-iiQ"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c9L-4A-a0a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2528" y="1136"/>
         </scene>

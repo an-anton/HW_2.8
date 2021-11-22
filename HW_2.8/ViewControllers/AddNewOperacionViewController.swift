@@ -22,23 +22,27 @@ class AddNewOperacionTableViewController: UITableViewController {
     
     @IBOutlet var currentAccountTransactionLable: UILabel!
     @IBOutlet var currentCategoryTransactionLable: UILabel!
-    @IBOutlet var currentDateTransactionLable: UILabel!
+    @IBOutlet var dateTextField: UITextField!
+    
     @IBOutlet var currentAccountBalanceLable: UILabel!
     
     @IBOutlet var ammountCurrentTransactionTextField: UITextField!
+    @IBOutlet var saveButtonOutlet: UIBarButtonItem!
     
     // MARK: - Public preference
     var persons: Person!
     var delegate: UpdateTransactionsTableViewDelegate!
 
     // MARK: - Private preverence
-    private let datePicker = UIDatePicker()
+    let datePicker = UIDatePicker()
     private var typeCurrentTransaction = "Расход"
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        ammountCurrentTransactionTextField.becomeFirstResponder()
+        createToolBar(for: ammountCurrentTransactionTextField)
+        createDataPicker(for: dateTextField)
     }
-    
     // MARK: - Actions
     @IBAction func segmentedControlAction() {
         switch segmentedControlOutlet.selectedSegmentIndex {
@@ -48,7 +52,9 @@ class AddNewOperacionTableViewController: UITableViewController {
         print(typeCurrentTransaction)
     }
 
+    
     @IBAction func saveButtonPressed(_ sender: Any) {
+        
         let ammountTransaction = Int(ammountCurrentTransactionTextField.text!) ?? 0
         //let dateTransaction = currentDateTransactionLable.text ?? ""
         let categoryTransaction = currentCategoryTransactionLable.text ?? ""
@@ -81,11 +87,9 @@ class AddNewOperacionTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        datePicker.locale = Locale(identifier: "ru_RU")
-        datePicker.datePickerMode = UIDatePicker.Mode.date
-        datePicker.preferredDatePickerStyle = .compact
+       
     }
+
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -97,21 +101,12 @@ class AddNewOperacionTableViewController: UITableViewController {
             chosenAccountFrom.delegate = self
         }
     }
-    
-    
-
-    // MARK: - UIDatePicker
-    private func createDatePicker(textfields: UITextField...) {
-    }
 }
 
     // MARK: - EXTENSION
 extension AddNewOperacionTableViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         textField.becomeFirstResponder()
-    }
-    func textFieldDidChangeSelection(_ textField: UITextField) {
-
     }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.endEditing(true)
@@ -120,7 +115,47 @@ extension AddNewOperacionTableViewController: UITextFieldDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.view.endEditing(true)
     }
+    private func createToolBar(for textField: UITextField) {
+        let toolBar = UIToolbar()
+        toolBar.sizeToFit()
+        let doneButton = UIBarButtonItem(title: "done",
+                                         style: .done,
+                                         target: self,
+                                         action: #selector(doneClicked))
+        toolBar.setItems([doneButton], animated: true)
+        textField.inputAccessoryView = toolBar
+    }
+    
+    @objc func doneClicked() {
+        view.endEditing(true)
+        }
+    
+    private func createDataPicker(for textField: UITextField) {
+        let datePicker = UIDatePicker()
+        datePicker.preferredDatePickerStyle = .wheels
+        datePicker.datePickerMode = .date
+        datePicker.locale = Locale(identifier: "ru_RU")
+        textField.inputView = datePicker
+        
+        let toolBar = UIToolbar()
+        toolBar.sizeToFit()
+        let doneButton = UIBarButtonItem(title: "done",
+                                         style: .done,
+                                         target: self,
+                                         action: #selector(doneDatePicker))
+        toolBar.setItems([doneButton], animated: true)
+        textField.inputAccessoryView = toolBar
+    }
+
+    @objc func doneDatePicker() {
+            let formater = DateFormatter()
+            formater.dateFormat = "dd.MM.yy"
+            dateTextField.text = "Дата: \(formater.string(from: datePicker.date))"
+            view.endEditing(true)
+    }
 }
+
+
 
 extension AddNewOperacionTableViewController: UpdateCategoryTableViewDelegate {
     func updateCategory(with newValue: Categories) {
