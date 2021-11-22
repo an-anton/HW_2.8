@@ -21,13 +21,13 @@ class AllAccountTransactionTableViewController: UITableViewController {
     var persons: Person!
     
     //MARK: - Private properties
-    private var ammountRows1: [String: [Transaction]] = [:]
+    private var allTransForDates: [String: [Transaction]] = [:]
     private var date: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         ammoutAccountButton.isEnabled = false
-        ammountRows1 = chosenAllTransactionForDates()
+        allTransForDates = chosenAllTransactionForDates()
         date = apdateCountOfHowManyDate()
     }
     
@@ -50,7 +50,7 @@ class AllAccountTransactionTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let arrayOfTransaction = ammountRows1
+        let arrayOfTransaction = allTransForDates
         let date = apdateCountOfHowManyDate()
         let dataSection = date[section]
         let transactionsArray = arrayOfTransaction[dataSection]!.count
@@ -63,7 +63,7 @@ class AllAccountTransactionTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TransactionsTableViewCell
-        let arrayOfTransaction = ammountRows1
+        let arrayOfTransaction = allTransForDates
         let transactions = arrayOfTransaction[date[indexPath.section]]!
         let transaction = transactions[indexPath.row]
         
@@ -164,7 +164,7 @@ extension AllAccountTransactionTableViewController: UpdateTransactionsTableViewD
     func updateTransaction(with currentTransaction: Transaction) {
         persons.transaction.insert(currentTransaction, at: 0)
         date = apdateCountOfHowManyDate()
-        ammountRows1 = chosenAllTransactionForDates()
+        allTransForDates = chosenAllTransactionForDates()
         tableView.reloadData()
     }
 }
