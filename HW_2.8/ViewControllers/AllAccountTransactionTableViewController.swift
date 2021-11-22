@@ -19,6 +19,7 @@ class AllAccountTransactionTableViewController: UITableViewController {
     
     //MARK: - Properties
     var persons: Person!
+    var delegate: UpdateTabBatTest!
     
     //MARK: - Private properties
     private var allTransForDates: [String: [Transaction]] = [:]
@@ -34,7 +35,6 @@ class AllAccountTransactionTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         ammoutAccountButton.title = String(ammountAllAccount()) + " ₽"
-        print(persons.transaction)
     }
 
     @IBAction func addButton(_ sender: UIBarButtonItem) {
@@ -165,6 +165,7 @@ extension AllAccountTransactionTableViewController: UpdateTransactionsTableViewD
         persons.transaction.insert(currentTransaction, at: 0)
         date = apdateCountOfHowManyDate()
         allTransForDates = chosenAllTransactionForDates()
+        delegate.updateTabBar(with: persons)
         tableView.reloadData()
     }
 }

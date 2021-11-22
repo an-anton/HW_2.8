@@ -14,6 +14,7 @@ protocol CategoriesTableViewDalegete {
 class MoreTableViewController: UITableViewController {
 
     var persons: Person!
+    var delegate: UpdateTabBatTest!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,5 +31,6 @@ class MoreTableViewController: UITableViewController {
 extension MoreTableViewController: CategoriesTableViewDalegete {
     func addNewCategory(with newValue: Categories) {
         persons.accountСategories.append(newValue)
+        delegate.updateTabBar(with: persons)
     }
 }

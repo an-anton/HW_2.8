@@ -41,8 +41,8 @@ class AddNewOperacionTableViewController: UITableViewController {
         super.viewDidLoad()
         ammountCurrentTransactionTextField.becomeFirstResponder()
         createToolBar(for: ammountCurrentTransactionTextField)
+        dateTextField.text = "23.11.21"
         createDataPicker(for: dateTextField)
-        print(persons.transaction)
     }
     // MARK: - Actions
     @IBAction func segmentedControlAction() {
