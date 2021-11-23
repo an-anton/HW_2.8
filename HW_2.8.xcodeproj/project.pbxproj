@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		270FF86C274CD3B4002FD332 /* Developers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270FF86B274CD3B4002FD332 /* Developers.swift */; };
+		270FF86E274CDAC6002FD332 /* DevTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270FF86D274CDAC6002FD332 /* DevTableViewController.swift */; };
 		274D522F273E8B76004A7259 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274D522E273E8B76004A7259 /* AppDelegate.swift */; };
 		274D5231273E8B76004A7259 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274D5230273E8B76004A7259 /* SceneDelegate.swift */; };
 		274D5233273E8B76004A7259 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274D5232273E8B76004A7259 /* LoginViewController.swift */; };
@@ -16,6 +18,7 @@
 		274D5246273EE068004A7259 /* Start.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 274D5245273EE068004A7259 /* Start.storyboard */; };
 		27B2C98C27453EF300D4F1BA /* AddNewOperacionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B2C98B27453EF300D4F1BA /* AddNewOperacionViewController.swift */; };
 		27B2C98E2745410700D4F1BA /* AddNewOperacion.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27B2C98D2745410700D4F1BA /* AddNewOperacion.storyboard */; };
+		27DD0A99274CE5D9006C1298 /* DetailDeveloperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DD0A98274CE5D9006C1298 /* DetailDeveloperViewController.swift */; };
 		971615FC2741797D00B171E0 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971615FB2741797D00B171E0 /* Person.swift */; };
 		971615FE27417BDD00B171E0 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971615FD27417BDD00B171E0 /* DataManager.swift */; };
 		971616002741807200B171E0 /* AccountExistingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971615FF2741807200B171E0 /* AccountExistingTableViewController.swift */; };
@@ -34,6 +37,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		270FF86B274CD3B4002FD332 /* Developers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Developers.swift; sourceTree = "<group>"; };
+		270FF86D274CDAC6002FD332 /* DevTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DevTableViewController.swift; path = HW_2.8/Storyboards/DevTableViewController.swift; sourceTree = SOURCE_ROOT; };
 		274D522B273E8B76004A7259 /* HW_2.8.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HW_2.8.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		274D522E273E8B76004A7259 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		274D5230273E8B76004A7259 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -45,6 +50,7 @@
 		274D5245273EE068004A7259 /* Start.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Start.storyboard; sourceTree = "<group>"; };
 		27B2C98B27453EF300D4F1BA /* AddNewOperacionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewOperacionViewController.swift; sourceTree = "<group>"; };
 		27B2C98D2745410700D4F1BA /* AddNewOperacion.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddNewOperacion.storyboard; sourceTree = "<group>"; };
+		27DD0A98274CE5D9006C1298 /* DetailDeveloperViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailDeveloperViewController.swift; sourceTree = SOURCE_ROOT; };
 		971615FB2741797D00B171E0 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		971615FD27417BDD00B171E0 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		971615FF2741807200B171E0 /* AccountExistingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountExistingTableViewController.swift; sourceTree = "<group>"; };
@@ -118,6 +124,8 @@
 		274D5243273E93D5004A7259 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				27DD0A98274CE5D9006C1298 /* DetailDeveloperViewController.swift */,
+				270FF86D274CDAC6002FD332 /* DevTableViewController.swift */,
 				274D5232273E8B76004A7259 /* LoginViewController.swift */,
 				973B529827442F4A0068F963 /* StartTabBarController.swift */,
 				971615FF2741807200B171E0 /* AccountExistingTableViewController.swift */,
@@ -165,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				971615FB2741797D00B171E0 /* Person.swift */,
+				270FF86B274CD3B4002FD332 /* Developers.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -256,10 +265,13 @@
 				971615FC2741797D00B171E0 /* Person.swift in Sources */,
 				974AE9E9274AEDCF003A661A /* ChosenAccountFromTableViewController.swift in Sources */,
 				971616002741807200B171E0 /* AccountExistingTableViewController.swift in Sources */,
+				270FF86C274CD3B4002FD332 /* Developers.swift in Sources */,
 				973B529B274435B30068F963 /* AllAccountTransactionTableViewController.swift in Sources */,
 				27B2C98C27453EF300D4F1BA /* AddNewOperacionViewController.swift in Sources */,
 				274D5231273E8B76004A7259 /* SceneDelegate.swift in Sources */,
 				974AE9E3274A539B003A661A /* CategoriesTableViewController.swift in Sources */,
+				270FF86E274CDAC6002FD332 /* DevTableViewController.swift in Sources */,
+				27DD0A99274CE5D9006C1298 /* DetailDeveloperViewController.swift in Sources */,
 				974AE9E7274AE6F6003A661A /* ChosenAccountTypeFromAddTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

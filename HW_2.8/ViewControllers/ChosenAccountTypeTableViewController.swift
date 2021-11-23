@@ -11,10 +11,6 @@ class ChosenAccountTypeTableViewController: UITableViewController {
 
     var accountEnumType: [AccountTypes]!
     var delegete: IndexDidSelectedRowViewControllerDelegate!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
 
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {

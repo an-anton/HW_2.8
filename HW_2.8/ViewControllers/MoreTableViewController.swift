@@ -15,10 +15,7 @@ class MoreTableViewController: UITableViewController {
 
     var persons: Person!
     var delegate: UpdateTabBatTest!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
+
 
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
