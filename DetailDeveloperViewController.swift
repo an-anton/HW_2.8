@@ -11,21 +11,17 @@ class DetailDeveloperViewController: UIViewController {
     
     var developer: Developer!
 
-    @IBOutlet var avatarImageView: UIImageView! {
-        didSet {
-            avatarImageView.layer.cornerRadius = avatarImageView.frame.width / 6
-            avatarImageView.contentMode = .scaleAspectFill
-        }
-    }
+    @IBOutlet var avatarImageView: UIImageView! 
     
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewDidLayoutSubviews() {
+        avatarImageView.layer.cornerRadius = avatarImageView.frame.width / 2
+        avatarImageView.contentMode = .scaleAspectFill
         avatarImageView.image = UIImage(named: developer.avatar)
         avatarImageView.layer.borderWidth = 2
         avatarImageView.layer.borderColor = UIColor.gray.cgColor
         title = developer.fullName
     }
-    
-    
+
 }
  // MARK: - EXTENSION
 extension DetailDeveloperViewController: UITableViewDataSource {
